@@ -1,9 +1,17 @@
 services:
   agent-report:
-    build: . 
+    build: 
+      context: ..
+      dockerfile: deployment/Dockerfile
     ports:
       - "7700:5000"
-    volumes:
-      - .:/app
     environment:
       - url=https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
