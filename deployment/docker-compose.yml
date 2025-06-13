@@ -4,7 +4,8 @@ services:
       context: ..
       dockerfile: deployment/Dockerfile
     ports:
-      - "7700:5000"
+      - "7700:5000"  # FastAPI
+      - "8501:8501"  # Streamlit
     environment:
       - url=https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
       - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json

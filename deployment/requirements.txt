@@ -6,3 +6,4 @@ python-dotenv==1.1.0
 Requests==2.32.4
 FastAPI==0.103.2
 uvicorn==0.23.2
+streamlit==1.32.0
