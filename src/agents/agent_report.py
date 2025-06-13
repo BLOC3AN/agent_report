@@ -11,8 +11,7 @@ from src.logs.logger import Logger
 logger = Logger(__name__)
 
 class AgentReporter:
-    def __init__(self, url):
-        self.url = url
+    def __init__(self):
         self.prompt_file_path = "src/prompt/agent_report.md"
         self.agent = AgentGemini() 
         self.tools = []
