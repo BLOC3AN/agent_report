@@ -1,0 +1,7 @@
+langchain_core==0.3.65
+langchain_google_genai==2.1.5
+load_dotenv==0.1.0
+polars==1.30.0
+python-dotenv==1.1.0
+Requests==2.32.4
+FastAPI==0.103.2

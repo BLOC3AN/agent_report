@@ -1,0 +1,9 @@
+services:
+  agent-report:
+    build: . 
+    ports:
+      - "7700:5000"
+    volumes:
+      - .:/app
+    environment:
+      - url=https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
