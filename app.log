@@ -133,3 +133,461 @@ dict_keys(['input', 'output'])
 *Block*:
 None
 ```
+2025-06-13 15:09:55,736 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 15:09:55,742 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 15:10:01,680 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 15:10:01,681 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting a model to run locally with vllm
+*Block*:
+None
+```
+2025-06-13 17:20:57,287 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:22:38,210 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:24:48,893 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:30:00,218 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:30:25,445 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:30:47,925 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:31:49,358 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:32:56,599 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:33:17,870 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:33:41,979 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:33:41,986 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 17:33:44,795 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 17:33:44,796 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve the data from the provided Google Sheet URL. There seems to be an issue with the service endpoint. Please check the URL and try again, or contact support if the issue persists.
+
+2025-06-13 17:35:03,474 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:35:03,479 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 17:35:06,253 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 17:35:06,253 - src.agents.agent_report - INFO - ✅ Result from agent:
+I am sorry, I cannot access the data in the provided Google Sheet. There seems to be an error when calling the service. Please try again later.
+
+2025-06-13 17:36:43,554 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:37:02,044 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:37:02,050 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 17:37:04,575 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 17:37:04,576 - src.agents.agent_report - INFO - ✅ Result from agent:
+I am sorry, I cannot access the data in the provided Google Sheet. There seems to be an error when calling the service. Please try again later.
+
+2025-06-13 17:39:03,019 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:39:03,025 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 17:39:04,644 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 17:39:04,645 - src.agents.agent_report - INFO - ✅ Result from agent:
+OK. Tell me the URL of the Google Sheet to get the data.
+
+2025-06-13 17:42:10,677 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:42:10,681 - src.agents.agent_report - ERROR - ❌ ❌ Error in agent execution: unsupported operand type(s) for +: 'NoneType' and 'str'
+2025-06-13 17:42:35,615 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:42:35,620 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 17:42:37,027 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 17:42:37,027 - src.agents.agent_report - INFO - ✅ Result from agent:
+Tôi cần một URL công khai của Google Sheet để tạo báo cáo cho bạn.
+2025-06-13 17:45:06,000 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:45:06,006 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 17:45:06,958 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 17:45:06,958 - src.agents.agent_report - INFO - ✅ Result from agent:
+Tôi cần một URL công khai của Google Sheet để tạo báo cáo cho bạn.
+2025-06-13 17:45:39,944 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:45:39,950 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 17:45:40,464 - src.llms.gemini - ERROR - ❌ ❌ Error in create Gemini Agent execution: Invalid argument provided to Gemini: 400 * GenerateContentRequest.tools[0].function_declarations[0].parameters.required[0]: property is not defined
+
+2025-06-13 17:45:40,465 - src.agents.agent_report - ERROR - ❌ ❌ Error in agent execution: 'output'
+2025-06-13 17:48:40,975 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:48:40,980 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 17:48:42,328 - src.llms.gemini - ERROR - ❌ ❌ Error in create Gemini Agent execution: Invalid argument provided to Gemini: 400 * GenerateContentRequest.tools[0].function_declarations[0].parameters.required[0]: property is not defined
+
+2025-06-13 17:48:42,328 - src.agents.agent_report - ERROR - ❌ ❌ Error in agent execution: 'output'
+2025-06-13 17:56:20,866 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 17:56:20,873 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 17:56:22,230 - src.llms.gemini - ERROR - ❌ ❌ Error in create Gemini Agent execution: Invalid argument provided to Gemini: 400 * GenerateContentRequest.tools[0].function_declarations[0].parameters.required[0]: property is not defined
+
+2025-06-13 17:56:22,230 - src.agents.agent_report - ERROR - ❌ ❌ Error in agent execution: 'output'
+2025-06-13 18:00:44,251 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:00:44,263 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 18:00:45,171 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 18:00:45,171 - src.agents.agent_report - INFO - ✅ Result from agent:
+Tôi cần một URL công khai của Google Sheet để tạo báo cáo cho bạn.
+2025-06-13 18:02:32,506 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:02:32,515 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 18:02:35,320 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 18:02:35,321 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to access the data in the Google Sheet using the provided URL. There was an error when trying to retrieve the information. Could you please check the URL and make sure it is correct and the sheet is publicly accessible? Once that's done, I can try generating the report again.
+
+2025-06-13 18:03:38,014 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:03:38,023 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 18:03:42,248 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 18:03:42,248 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve data from the provided Google Sheet URL. To generate the report, I need the data from the sheet. Could you please ensure that the URL is correct and the sheet is publicly accessible?
+
+2025-06-13 18:07:13,292 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:07:13,300 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 18:07:17,493 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 18:07:17,494 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve data from the provided Google Sheet URL. To generate the report, I need the data from the sheet. Could you please ensure that the URL is correct and the sheet is publicly accessible?
+
+2025-06-13 18:08:39,654 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:08:39,663 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 18:08:43,810 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 18:08:43,810 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve data from the provided Google Sheet URL. To generate the report, I need the data from the sheet. Could you please ensure that the URL is correct and the sheet is publicly accessible?
+
+2025-06-13 18:09:27,711 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:09:27,722 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 18:09:33,319 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 18:09:33,319 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve data from the provided Google Sheet URL. To generate the report, I need the data from the sheet. Could you please ensure that the URL is correct and the sheet is publicly accessible?
+
+2025-06-13 18:12:44,436 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:12:44,444 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 18:12:48,244 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 18:12:48,245 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve data from the provided Google Sheet URL. To generate the report, I need the data from the sheet. Could you please ensure that the URL is correct and the sheet is publicly accessible?
+
+2025-06-13 18:14:33,759 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:14:33,772 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 18:14:38,342 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 18:14:38,343 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve data from the provided Google Sheet URL. To generate the report, I need the data from the sheet. Could you please make sure the URL is correct and the sheet is publicly accessible?
+
+2025-06-13 18:15:17,265 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:15:26,768 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:20:02,241 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:20:02,250 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 18:20:06,592 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 18:20:06,593 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve data from the provided Google Sheet URL. To generate the report, I need the data from the sheet. Could you please ensure that the URL is correct and the sheet is publicly accessible?
+
+2025-06-13 18:21:36,438 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:21:36,447 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 18:21:41,342 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 18:21:41,342 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve data from the provided Google Sheet URL. To generate the report, I need the data from the sheet. Could you please ensure that the URL is correct and the sheet is publicly accessible?
+
+2025-06-13 18:22:47,698 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 18:22:47,709 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 18:22:52,219 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 18:22:52,219 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve data from the provided Google Sheet URL. To generate the report, I need the data from the sheet. Could you please ensure that the URL is correct and the sheet is publicly accessible?
+
+2025-06-13 22:15:53,141 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:18:06,446 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:18:43,915 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:18:43,932 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:18:47,731 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:18:47,732 - src.agents.agent_report - INFO - ✅ Result from agent:
+Tôi cần một URL công khai của Google Sheet để tạo báo cáo cho bạn.
+2025-06-13 22:19:34,405 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:19:34,411 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:19:35,655 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:19:35,655 - src.agents.agent_report - INFO - ✅ Result from agent:
+Tôi cần URL của Google Sheet để tạo báo cáo cho bạn.
+2025-06-13 22:20:08,122 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:20:08,130 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:20:50,209 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:20:50,209 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve data from the provided Google Sheet URL. To proceed, please ensure that the Google Sheet is publicly accessible. After confirming, kindly provide the URL again, and I will generate the report for you.
+
+2025-06-13 22:24:01,359 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:24:01,366 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:24:04,379 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:24:04,379 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve the data from the provided Google Sheet URL. There seems to be an internal server error. Please check the URL and try again, or try again later.
+
+2025-06-13 22:28:35,210 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:28:35,216 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:28:38,587 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:28:38,588 - src.agents.agent_report - INFO - ✅ Result from agent:
+I am sorry, I cannot fulfill this request. There was an error when calling the tool to get information from the provided URL. Please try again or check the URL.
+
+2025-06-13 22:29:16,095 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:29:16,101 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:29:20,932 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:29:20,932 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve the data from the provided Google Sheet URL. There seems to be an internal server error. Please check the URL and try again, or try again later.
+
+2025-06-13 22:31:50,396 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:31:50,402 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:31:53,950 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:31:53,951 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve the data from the provided Google Sheet URL. There seems to be an internal server error. Please check the URL and try again, or try again later.
+
+2025-06-13 22:33:39,842 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:33:39,848 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:33:45,226 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:33:45,226 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve the data from the Google Sheet. There was an unknown error. Please check the URL and try again.
+
+2025-06-13 22:35:37,746 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:35:37,752 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:35:41,623 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:35:41,624 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve the data from the provided Google Sheet URL due to an unknown error. Please check the URL and try again.
+
+2025-06-13 22:37:04,026 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:37:04,032 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:37:07,537 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:37:07,537 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve the data from the Google Sheet. There was an unknown error. Please check the URL and try again.
+
+2025-06-13 22:40:12,910 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:41:18,913 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:41:18,919 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:41:22,112 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:41:22,112 - src.agents.agent_report - INFO - ✅ Result from agent:
+I'm sorry, I wasn't able to retrieve the data from the provided Google Sheet URL due to an unknown error. Please check the URL and try again.
+
+2025-06-13 22:42:59,175 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:42:59,182 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:43:03,367 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:43:03,368 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Nghiên cứu finetuning_model
+    - LoRA
+    - QLoRA
+- Nghiên cứu vllm và chạy model local
+- Lựa chọn mô hình để chạy trên máy local với vllm
+*Block*:
+None
+```
+
+```mardown
+*Date*: 12/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Nghiên cứu finetuning_model
+    - LoRA
+    - QLoRA
+*Block*:
+None
+```
+
+2025-06-13 22:49:13,627 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:49:13,633 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:49:17,789 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:49:17,789 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Nghiên cứu finetuning_model
+    - LoRA
+    - QLoRA
+- Nghiên cứu vllm và chạy model local
+- Lựa chọn mô hình để chạy trên máy local với vllm
+*Block*:
+None
+```
+
+```mardown
+*Date*: 12/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Nghiên cứu finetuning_model
+    - LoRA
+    - QLoRA
+*Block*:
+None
+```
+
+2025-06-13 22:49:39,875 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:49:39,881 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:49:43,674 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:49:43,675 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting models to run locally with vllm
+*Block*:
+None
+*Completed*:
+- Time optimization for analysis intent
+
+*Date*: 12/06/2025
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+*Block*:
+None
+*Completed*:
+- Time optimization for analysis intent
+```
+2025-06-13 22:50:56,620 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:50:56,626 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:51:00,562 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:51:00,562 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting models to run locally with vllm
+*Block*:
+None
+*Completed*:
+- Time optimization for analysis intent
+```
+2025-06-13 22:51:36,111 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:51:36,117 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:51:39,875 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:51:39,876 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting models to run locally with vllm
+*Block*:
+None
+*Completed*:
+- Time optimization for analysis intent
+```
+
+2025-06-13 22:51:58,397 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:51:58,403 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:52:02,449 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:52:02,449 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting models to run locally with vllm
+*Block*:
+None
+*Completed*:
+- Time optimization for analysis intent
+```
+
+```mardown
+*Date*: 12/06/2025
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+*Block*:
+None
+*Completed*:
+- Time optimization for analysis intent
+```
+
+2025-06-13 22:52:31,075 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:52:31,081 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:52:35,582 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:52:35,583 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting models to run locally with vllm
+*Block*:
+None
+*Completed*:
+- Time optimization for analysis intent
+```
+2025-06-13 22:54:19,393 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 22:54:19,399 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 22:54:23,300 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 22:54:23,300 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting models to run locally with vllm
+*Block*:
+None
+*Completed*:
+- Time optimization for analysis intent
+```
+2025-06-13 23:05:09,256 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 23:05:09,259 - src.mcp.mcp_sever.mcp_tool_adapter - INFO - ✅ Providing list of available tools (capabilities).
+2025-06-13 23:05:09,262 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 23:05:11,545 - src.mcp.mcp_sever.mcp_tool_adapter - INFO - ✅ Received invocation request for get_information_from_url with URL: https://docs.google.com/spreadsheets/d/e/2PACX-1vRi-lA9oNipgg_t0NBTpYJYBlwboy0qBqNzsTS-m2aWf_y1Sx5IliNi5tkYiiNlAsZo5J6hQZPmTF60/pub?output=csv
+2025-06-13 23:05:11,545 - src.tools.get_information_from_url - INFO - ✅ Attempting to fetch data from: 
+https://docs.google.com/spreadsheets/d/e/2PACX-1vRi-lA9oNipgg_t0NBTpYJYBlwboy0qBqNzsTS-m2aWf_y1Sx5IliNi5tkYiiNlAsZo5J6hQZPmTF60/pub?output=csv
+2025-06-13 23:05:12,963 - src.mcp.mcp_sever.mcp_tool_adapter - INFO - ✅ Successfully invoked get_information_from_url for URL: https://docs.google.com/spreadsheets/d/e/2PACX-1vRi-lA9oNipgg_t0NBTpYJYBlwboy0qBqNzsTS-m2aWf_y1Sx5IliNi5tkYiiNlAsZo5J6hQZPmTF60/pub?output=csv
+2025-06-13 23:05:14,064 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 23:05:14,064 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting models to run locally with vllm
+*Block*:
+None
+*Completed*:
+- Time optimization for analysis intent
+```

@@ -37,10 +37,10 @@ class AgentReporter:
             logger.warning(f"Warning: Prompt file not found at {file_path}")
             return "You are a helpful assistant that can analyze data and create reports."
     
-    def run(self):
+    def run(self, input:str):
         """Chạy agent với proper message flow"""
         try:
-            result = self.agent.agent_gemini(self.tools, self.prompt, self.url)
+            result = self.agent.agent_gemini(self.tools, self.prompt, input= input)
             logger.info(f"Result from agent:\n{result['output']}")
             return result
 

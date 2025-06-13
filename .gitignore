@@ -5,3 +5,7 @@
 .env
 
 *__pycache__
+
+app.log
+
+*__init__.py

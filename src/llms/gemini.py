@@ -33,3 +33,4 @@ class AgentGemini:
         except Exception as e:
             logger.error(f"❌ Error in create Gemini Agent execution: {str(e)}")
             return {"Error as agent_gemini": str(e)}
+
