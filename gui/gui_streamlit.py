@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-print("PATHHHHHHHHHHH:",os.getcwd())
 from dotenv import load_dotenv
 from src.agents.agent_report import AgentReporter
 
