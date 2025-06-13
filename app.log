@@ -1,0 +1,135 @@
+2025-06-13 13:41:27,815 - src.llms.gemini - INFO - ✅ Gemini Agent created successfully
+2025-06-13 13:41:37,954 - src.llms.gemini - INFO - 📜 Resonsed from Gemini Agent {'input': 'https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing', 'output': '```mardown\n*Date*: 13/06/2025\n*Completed*:\n- Time optimization for analyis intent\n*In Progress*:\n- Researching finetuning_model\n    - LoRA\n    - QLoRA\n- Researching vllm and running local models\n- Selecting a model to run locally with vllm\n*Block*:\nNone\n```'}
+2025-06-13 13:44:13,722 - src.llms.gemini - INFO - ✅ Gemini Agent created successfully
+2025-06-13 13:44:18,193 - src.llms.gemini - INFO - 📜 Resonsed from Gemini Agent {'input': 'https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing', 'output': '```mardown\n*Date*: 13/06/2025\n*Completed*:\n- Time optimization for analyis intent\n*In Progress*:\n- Researching finetuning_model\n    - LoRA\n    - QLoRA\n- Researching vllm and running local models\n- Selecting a model to run locally with vllm\n*Block*:\nNone\n```'}
+2025-06-13 13:44:18,194 - src.agents.agent_report - INFO - Result from agent: ```mardown
+*Date*: 13/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting a model to run locally with vllm
+*Block*:
+None
+```
+2025-06-13 13:56:58,024 - src.llms.gemini - INFO - ✅ Gemini Agent created successfully
+2025-06-13 13:57:01,793 - src.llms.gemini - INFO - 📜 Resonsed from Gemini Agent {'input': 'https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing', 'output': '```mardown\n*Date*: 13/06/2025\n*Completed*:\n- Time optimization for analyis intent\n*In Progress*:\n- Researching finetuning_model\n    - LoRA\n    - QLoRA\n- Researching vllm and running local models\n- Selecting a model to run locally with vllm\n*Block*:\nNone\n```'}
+2025-06-13 13:57:01,794 - src.agents.agent_report - INFO - Result from agent: ```mardown
+*Date*: 13/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting a model to run locally with vllm
+*Block*:
+None
+```
+2025-06-13 13:58:22,451 - src.llms.gemini - INFO - ✅ Gemini Agent created successfully
+2025-06-13 13:58:25,782 - src.llms.gemini - INFO - 📜 Resonsed from Gemini Agent 
+{'input': 'https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing', 'output': '```mardown\n*Date*: 13/06/2025\n*Completed*:\n- Time optimization for analyis intent\n*In Progress*:\n- Researching finetuning_model\n    - LoRA\n    - QLoRA\n- Researching vllm and running local models\n- Selecting a model to run locally with vllm\n*Block*:\nNone\n```'}
+2025-06-13 13:58:25,783 - src.agents.agent_report - INFO - Result from agent: ```mardown
+*Date*: 13/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting a model to run locally with vllm
+*Block*:
+None
+```
+2025-06-13 13:58:42,959 - src.llms.gemini - INFO - ✅ Gemini Agent created successfully
+2025-06-13 13:58:46,408 - src.llms.gemini - INFO - 📜 Resonsed from Gemini Agent 
+{'input': 'https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing', 'output': '```mardown\n*Date*: 13/06/2025\n*Completed*:\n- Time optimization for analyis intent\n*In Progress*:\n- Researching finetuning_model\n    - LoRA\n    - QLoRA\n- Researching vllm and running local models\n- Selecting a model to run locally with vllm\n*Block*:\nNone\n```'}
+2025-06-13 13:58:46,409 - src.agents.agent_report - INFO - Result from agent:
+```mardown
+*Date*: 13/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting a model to run locally with vllm
+*Block*:
+None
+```
+2025-06-13 13:59:24,210 - src.llms.gemini - INFO - ✅ Gemini Agent created successfully
+2025-06-13 13:59:27,954 - src.llms.gemini - INFO - 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 13:59:27,954 - src.agents.agent_report - INFO - Result from agent:
+```mardown
+*Date*: 13/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting a model to run locally with vllm
+*Block*:
+None
+```
+2025-06-13 14:08:54,315 - src.llms.gemini - INFO - ✅ Gemini Agent created successfully
+2025-06-13 14:08:58,584 - src.llms.gemini - INFO - 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 14:08:58,584 - src.agents.agent_report - INFO - Result from agent:
+```mardown
+*Date*: 13/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting a model to run locally with vllm
+*Block*:
+None
+```
+2025-06-13 14:11:32,284 - src.agents.agent_report - INFO - 📑 System prompt loaded.
+2025-06-13 14:11:32,290 - src.llms.gemini - INFO - ✅ Gemini Agent created successfully
+2025-06-13 14:11:36,443 - src.llms.gemini - INFO - 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 14:11:36,444 - src.agents.agent_report - INFO - Result from agent:
+```mardown
+*Date*: 13/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting a model to run locally with vllm
+*Block*:
+None
+```
+2025-06-13 14:14:51,903 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 14:14:51,908 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 14:14:56,903 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 14:14:56,904 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*Completed*:
+- Time optimization for analyis intent
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting a model to run locally with vllm
+*Block*:
+None
+```

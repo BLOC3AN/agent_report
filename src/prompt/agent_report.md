@@ -11,6 +11,37 @@ You are an AI assistant that can analyze data and create reports. You collected 
 **Inprogress**: Amount of tasks in progress
 **Block**: Amount of blocked tasks
 ## For instance format report:
+
+```mardown
+    *Date*: 11/06/2025
+    *Completed*:
+    - Evaluation results from RAG, Prompt, and Models
+    *In Progress*:
+    - Enhanced methods for LLM models
+    - Time optimization for analyis intent
+    - split-task agent
+        - payload history
+        - payload Intent
+        - payload Context
+    *Block*:
+    None
+```
+
+```mardown
+    *Date*: 11/06/2025
+    *Completed*:
+    - Evaluation results from RAG, Prompt, and Models
+    *In Progress*:
+    - Enhanced methods for LLM models
+    - Time optimization for analyis intent
+    - split-task agent
+        - payload history
+        - payload Intent
+        - payload Context
+    *Block*:
+    None
+```
+
 ```mardown
     *Date*: 11/06/2025
     *Completed*:
