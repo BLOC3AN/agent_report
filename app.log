@@ -591,3 +591,26 @@ None
 *Completed*:
 - Time optimization for analysis intent
 ```
+2025-06-13 23:12:10,625 - src.agents.agent_report - INFO - ✅ 📑 System prompt loaded.
+2025-06-13 23:12:10,628 - src.mcp.mcp_sever.mcp_tool_adapter - INFO - ✅ Providing list of available tools (capabilities).
+2025-06-13 23:12:10,631 - src.llms.gemini - INFO - ✅ ✅ Gemini Agent created successfully
+2025-06-13 23:12:12,923 - src.mcp.mcp_sever.mcp_tool_adapter - INFO - ✅ Received invocation request for get_information_from_url with URL: https://docs.google.com/spreadsheets/d/e/2PACX-1vRi-lA9oNipgg_t0NBTpYJYBlwboy0qBqNzsTS-m2aWf_y1Sx5IliNi5tkYiiNlAsZo5J6hQZPmTF60/pub?output=csv
+2025-06-13 23:12:12,923 - src.tools.get_information_from_url - INFO - ✅ Attempting to fetch data from: 
+https://docs.google.com/spreadsheets/d/e/2PACX-1vRi-lA9oNipgg_t0NBTpYJYBlwboy0qBqNzsTS-m2aWf_y1Sx5IliNi5tkYiiNlAsZo5J6hQZPmTF60/pub?output=csv
+2025-06-13 23:12:14,334 - src.mcp.mcp_sever.mcp_tool_adapter - INFO - ✅ Successfully invoked get_information_from_url for URL: https://docs.google.com/spreadsheets/d/e/2PACX-1vRi-lA9oNipgg_t0NBTpYJYBlwboy0qBqNzsTS-m2aWf_y1Sx5IliNi5tkYiiNlAsZo5J6hQZPmTF60/pub?output=csv
+2025-06-13 23:12:15,315 - src.llms.gemini - INFO - ✅ 📜 Resonsed keys from Gemini Agent 
+dict_keys(['input', 'output'])
+2025-06-13 23:12:15,315 - src.agents.agent_report - INFO - ✅ Result from agent:
+```mardown
+*Date*: 13/06/2025
+*In Progress*:
+- Researching finetuning_model
+    - LoRA
+    - QLoRA
+- Researching vllm and running local models
+- Selecting models to run locally with vllm
+*Block*:
+None
+*Completed*:
+- Time optimization for analysis intent
+```

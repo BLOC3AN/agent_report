@@ -73,9 +73,7 @@ if __name__ == "__main__":
     from src.agents.agent_report import AgentReporter
        # Lấy URL từ biến môi trường
     sheet_url = os.getenv('url')
-    
-    # Khởi tạo agent với URL thực tế
-    agent = AgentReporter(url=sheet_url)
+    agent = AgentReporter(url=None)
 
     # Bước quan trọng: Khám phá tools từ MCP Service API
     mcp_tools = discover_and_create_mcp_tools()

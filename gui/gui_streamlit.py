@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st # type: ignore
 import os
 from dotenv import load_dotenv
 from src.agents.agent_report import AgentReporter
@@ -56,7 +56,7 @@ if st.button("Generate Report", type="primary"):
             try:
                 # Initialize agent and run
                 agent = AgentReporter(url)
-                report = agent.run()
+                report = agent.run() #type: ignore
                 
                 # Display report
                 st.markdown("## Generated Report")
@@ -71,22 +71,7 @@ if st.button("Generate Report", type="primary"):
                     file_name="agent_report.md",
                     mime="text/markdown"
                 )
-                
-                # Display conversation history
-                with st.expander("View Conversation History"):
-                    messages = agent.get_conversation_history()
-                    for i, msg in enumerate(messages):
-                        if hasattr(msg, 'type') and msg.type == 'system':
-                            continue
-                        
-                        if hasattr(msg, 'type') and msg.type == 'human':
-                            st.markdown(f"**User:** {msg.content}")
-                        elif hasattr(msg, 'type') and msg.type == 'ai':
-                            st.markdown(f"**AI:** {msg.content}")
-                        elif hasattr(msg, 'type') and msg.type == 'tool':
-                            st.markdown(f"**Tool:** {msg.name}")
-                            st.code(msg.content)
-            
+                st.success("Report generated successfully!")
             except Exception as e:
                 st.error(f"Error generating report: {str(e)}")
     else:

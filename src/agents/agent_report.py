@@ -2,7 +2,6 @@
 # src/agents/agent_report.py
 # ==========================================
 from langchain_core.prompts import ChatPromptTemplate
-from src.tools.get_data_ggSheet import get_information_from_url
 from src.llms.gemini import AgentGemini 
 
 import load_dotenv
@@ -16,7 +15,7 @@ class AgentReporter:
         self.url = url
         self.prompt_file_path = "src/prompt/agent_report.md"
         self.agent = AgentGemini() 
-        self.tools = [get_information_from_url]
+        self.tools = []
         # System message
         self.system_prompt = self.read_prompt_from_md(self.prompt_file_path)   
         logger.info("📑 System prompt loaded.")     
