@@ -15,7 +15,6 @@ def run_agent_with_custom_url(custom_url=None):
     if not url:
         print("Error: No URL provided")
         return None
-    
     agent = AgentReporter(url)
     return agent.run()
 
@@ -23,6 +22,10 @@ def run_agent_with_custom_url(custom_url=None):
 async def get_report():
     result = run_agent_with_custom_url()
     return {"report": result}
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
 
 def main():
     # URL from .env
