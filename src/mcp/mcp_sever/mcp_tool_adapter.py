@@ -8,6 +8,7 @@ import os
 # Thêm thư mục gốc vào sys.path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
 from src.tools.get_information_from_url import get_information_from_url_impl
+from src.tools.save_chat_history_DB import save_chat_history
 import load_dotenv
 load_dotenv.load_dotenv()
 from src.logs.logger import Logger
@@ -40,10 +41,15 @@ class ToolInvocationResponse(BaseModel):
          dependencies=[])
 
 async def get_capabilities():
-    with open ("src/mcp/mcp_schema/schema.json", "r") as f:
-        schema = json.load(f)
+    response_model = []
+    for file in os.listdir("src/mcp/mcp_schema"):
+        if file.endswith(".json"):
+            with open (f"src/mcp/mcp_schema/{file}", "r") as f:
+                schema = json.load(f)
+                logger.info(f"Loading schema: {schema.keys()}")
+                response_model.append(ToolMetadata(mcp_schema=schema))
     logger.info("Providing list of available tools (capabilities).")
-    return [ToolMetadata(mcp_schema=schema)]
+    return response_model
 
 # --- Endpoint để gọi Tool ---
 # VÀ ĐÂY CHÍNH LÀ ĐIỂM QUAN TRỌNG: KHI AGENT TRỎ TỚI ĐỊA CHỈ TOOL, ĐÓ SẼ LÀ POST
@@ -61,6 +67,23 @@ async def invoke_get_information_from_url(request_body: GetInfoFromURLRequest):
     except Exception as e:
         logger.error(f"Error invoking get_information_from_url: {str(e)}")
         return ToolInvocationResponse(status="error", message=str(e), data = None)
+
+@app.post("/tools/save_chat_history_DB", 
+          response_model=ToolInvocationResponse,
+          summary="Thực thi tool 'save_chat_history_DB' để lưu lịch sử chat vào MongoDB",
+          dependencies=[])
+
+async def invoke_save_chat_history_DB(request_body: Dict[str, Any]):
+    logger.info(f"Received invocation request for save_chat_history_DB with data: {request_body.keys()}")
+    try:
+        save_chat_history(request_body)
+        logger.info(f"Successfully invoked save_chat_history_DB for data: {request_body.keys()}")
+        return ToolInvocationResponse(data = "Chat history saved successfully.")
+    except Exception as e:
+        logger.error(f"Error invoking save_chat_history_DB: {str(e)}")
+        return ToolInvocationResponse(status="error", message=str(e), data = None)
+
+
 
 # --- Main execution ---
 if __name__ == "__main__":

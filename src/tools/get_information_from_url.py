@@ -13,3 +13,8 @@ def get_information_from_url_impl(url: str):
     except Exception as e:
         logger.error(f"Error fetching data: {str(e)}")
         raise e
+    
+if __name__ == "__main__":
+    url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRi-lA9oNipgg_t0NBTpYJYBlwboy0qBqNzsTS-m2aWf_y1Sx5IliNi5tkYiiNlAsZo5J6hQZPmTF60/pub?output=csv"
+    data = get_information_from_url_impl(url)
+    print(data)

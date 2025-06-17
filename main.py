@@ -1,4 +1,3 @@
-# mcp_langchain_agent.py (một file mới để nghiên cứu tích hợp MCP)
 import os
 import requests
 from langchain_core.messages import HumanMessage, AIMessage
@@ -7,6 +6,8 @@ from typing import Dict, Any, List
 from pydantic import BaseModel, Field
 import load_dotenv
 load_dotenv.load_dotenv()
+from src.logs.logger import Logger
+logger = Logger(__name__)
 
 # --- Cấu hình cho MCP Service API ---
 MCP_SERVICE_API_URL = os.getenv("MCP_SERVICE_API_URL")
@@ -45,27 +46,27 @@ def discover_and_create_mcp_tools() -> List[BaseTool]:
     try:
         response = requests.get(capabilities_url, headers=headers)
         response.raise_for_status()
-        capabilities = response.json()[0]["mcp_schema"]
+        capabilities = response.json()
     except requests.exceptions.RequestException as e:
-        print(f"Error discovering MCP capabilities: {e}")
+        logger.error(f"Error discovering MCP capabilities: {e}")
         return []
 
     langchain_tools = []
+    for capability in capabilities:
+        tool_name = capability['mcp_schema']["tool_name"]
+        description = capability['mcp_schema']["description"]
+        endpoint = capability['mcp_schema']["endpoint_url"]
+        input_schema = capability['mcp_schema']["input_schema"] 
 
-    tool_name = capabilities["tool_name"]
-    description = capabilities["description"]
-    endpoint = capabilities["endpoint_url"]
-    input_schema = capabilities["input_schema"] 
-
-    mcp_tool_instance = MCPTool(
-        name=tool_name,
-        description=description,
-        args_schema=input_schema, # Truyền JSON Schema vào args_schema
-        mcp_endpoint=endpoint
-    )
-    langchain_tools.append(mcp_tool_instance)
+        mcp_tool_instance = MCPTool(
+            name=tool_name,
+            description=description,
+            args_schema=input_schema, # Truyền JSON Schema vào args_schema
+            mcp_endpoint=endpoint
+        )
+        langchain_tools.append(mcp_tool_instance)
     
-    print(f"Discovered {len(langchain_tools)} tools from MCP Service.")
+    logger.info(f"Discovered {len(langchain_tools)} tools from MCP Service.")
     return langchain_tools
 
 # --- Main Agent Logic ---
@@ -79,9 +80,13 @@ if __name__ == "__main__":
     mcp_tools = discover_and_create_mcp_tools()
     
     if not mcp_tools:
-        print("No tools discovered from MCP Service. Exiting.")
+        logger.error("No tools discovered from MCP Service. Exiting.")
         exit()
 
     # Sử dụng tools này trong agent
     agent.tools = mcp_tools
-    agent.run(input=f"Tạo cho tôi báo cáo đi bạn từ {sheet_url}, lấy thông tin mới nhất theo ngày và chuyển sáng tiếng anh cho tôi")
+    agent_report = agent.run(input=f"""Tạo cho tôi báo cáo đi bạn từ {sheet_url}, 
+              lấy thông tin mới nhất theo ngày và chuyển sáng tiếng anh cho tôi 
+              sau đó nhớ đảm bảo lưu lịch sử trò chuyện này vào MongoDB 
+             Kiểm tra lại mọi thứ theo đúng yêu cầu của tôi và trả về cho tôi đúng định dạng ouput sau khi sử dụng tools""")
+    logger.info(str(agent_report))

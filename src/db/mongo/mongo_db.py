@@ -14,7 +14,7 @@ class MongoDB:
 
     def insert_one(self, doc):
         """Insert one document into the collection."""
-        self.collection.insert_one(doc)
+        return self.collection.insert_one(doc)
     
     def find(self, query):
         """Find documents in the collection."""
