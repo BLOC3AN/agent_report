@@ -42,9 +42,9 @@ class ToolInvocationResponse(BaseModel):
 
 async def get_capabilities():
     response_model = []
-    for file in os.listdir("src/mcp/mcp_schema"):
+    for file in os.listdir("src/mcp/schema"):
         if file.endswith(".json"):
-            with open (f"src/mcp/mcp_schema/{file}", "r") as f:
+            with open (f"src/mcp/schema/{file}", "r") as f:
                 schema = json.load(f)
                 logger.info(f"Loading schema: {schema.keys()}")
                 response_model.append(ToolMetadata(mcp_schema=schema))
