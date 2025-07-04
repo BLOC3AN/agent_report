@@ -6,7 +6,7 @@
 import logging
 import os
 from typing import Optional
-from src.config import settings as config
+from src.config import config
 
 class Logger:
     """Enhanced logger with configuration support"""
