@@ -9,3 +9,6 @@
 app.log
 
 *__init__.py
+
+
+*.log
