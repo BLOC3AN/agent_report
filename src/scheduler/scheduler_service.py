@@ -38,7 +38,7 @@ class SchedulerService:
     
     def start(self):
         """Start the scheduler"""
-        if not config.SchedulerConfig.enabled:
+        if not config.SchedulerConfig.from_env().enabled:
             self.logger.info("⏸️ Scheduler is disabled in configuration")
             return
         
@@ -46,7 +46,7 @@ class SchedulerService:
             self.scheduler = BackgroundScheduler(timezone=self.timezone)
             
             # Schedule daily checks
-            for check_time in config.SchedulerConfig.check_times:
+            for check_time in config.SchedulerConfig.from_env().check_times:
                 hour, minute = map(int, check_time.split(':'))
                 
                 self.scheduler.add_job(
@@ -213,10 +213,10 @@ class SchedulerService:
                 "scheduler": scheduler_status,
                 "state": state_manager.get_stats(),
                 "config": {
-                    "enabled": config.SchedulerConfig.enabled,
-                    "timezone": config.SchedulerConfig.timezone,
-                    "check_times": config.SchedulerConfig.check_times,
-                    "max_reminders": config.SchedulerConfig.max_reminders
+                    "enabled": config.SchedulerConfig.from_env().enabled,
+                    "timezone": config.SchedulerConfig.from_env().timezone,
+                    "check_times": config.SchedulerConfig.from_env().check_times,
+                    "max_reminders": config.SchedulerConfig.from_env().max_reminders
                 }
             }
             
