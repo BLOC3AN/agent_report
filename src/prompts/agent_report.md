@@ -44,13 +44,19 @@ Create report in this EXACT format:
 **In Progress**: Amount of tasks in progress
 **Blocked**: Amount of blocked tasks
 
-### Step 4: MANDATORY - Save to Database
+### Step 4: MANDATORY - Send Report to Slack
+**Action: send_slack_message**
+**Action Input: {"message": "your_COMPLETE_FULL_report_with_all_details"}**
+
+Send the complete report to Slack user.
+
+### Step 5: MANDATORY - Save to Database
 **Action: save_chat_history_DB**
 **Action Input: {"user_input": "original_user_request", "response": "your_COMPLETE_FULL_report_with_all_details", "conversation_data": "complete_raw_data_as_json_string_no_truncation"}**
 
 CRITICAL: Ensure you save the COMPLETE, FULL content - no truncation or "..." allowed.
 
-### Step 5: Final Answer
+### Step 6: Final Answer
 **Thought: Do I need to use a tool? No**
 **Final Answer:** [Your complete English report here]
 
@@ -66,7 +72,12 @@ Inprogress: - Release agent hỗ trợ Customer Support với Minh phiên bản 
 Blocker: None
 Completed: None
 
-Thought: Now I need to save this data and generate the report
+Thought: Now I need to send the report to Slack and save to database
+Action: send_slack_message
+Action Input: {"message": "*Date*: 04/07/2025\n*Completed*: None\n*In Progress*:\n- Release the first version of the Customer Support agent with Minh\n- Continue research on Conversation Summary\n- Research RAG workflow to increase authenticity and reduce hallucinations for the agent\n*Blocked*: None"}
+Observation: ✅ Message sent to Slack successfully
+
+Thought: Now I need to save this data to database
 Action: save_chat_history_DB
 Action Input: {"user_input": "Generate report from Google Sheet", "response": "*Date*: 04/07/2025\n*Completed*: None\n*In Progress*:\n- Release the first version of the Customer Support agent with Minh\n- Continue research on Conversation Summary\n- Research RAG workflow to increase authenticity and reduce hallucinations for the agent\n*Blocked*: None", "conversation_data": "{\"Date\": \"04/07/2025\", \"Inprogress\": \"- Release agent hỗ trợ Customer Support với Minh phiên bản đầu tiên \\n- Tiếp tục nghiên cứu về summary Conversation\\n- Nghiên cứu về workflow RAG để tăng độ chân thật và giảm ảo giác cho agent\", \"Blocker\": \"None\", \"Completed\": \"None\"}"}
 Observation: ✅ Chat history saved successfully

@@ -6,6 +6,7 @@
 from typing import Dict, List
 from src.tools.get_information_from_url import GetInformationFromURLTool
 from src.tools.save_chat_history_DB import SaveChatHistoryTool
+from src.tools.send_slack_message import SendSlackMessageTool
 from src.logs.logger import Logger
 
 logger = Logger(__name__)
@@ -22,9 +23,10 @@ class ToolRegistry:
         """Initialize default tools"""
         default_tools = [
             GetInformationFromURLTool(),
-            SaveChatHistoryTool()
+            SaveChatHistoryTool(),
+            SendSlackMessageTool()
         ]
-        
+
         for tool in default_tools:
             self.register_tool(tool)
     

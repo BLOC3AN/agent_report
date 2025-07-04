@@ -22,3 +22,6 @@ pymongo>=4.6.0
 
 # Configuration
 python-dotenv>=1.0.0
+
+# Slack Integration
+slack-sdk>=3.21.0

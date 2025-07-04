@@ -123,6 +123,34 @@ async def list_tools():
         logger.error(f"Error listing tools: {str(e)}")
         raise HTTPException(status_code=500, detail="Error retrieving tools")
 
+@app.get("/test-slack")
+async def test_slack_connection():
+    """Test Slack connection and configuration"""
+    try:
+        from src.tools.send_slack_message import SendSlackMessageTool
+
+        slack_tool = SendSlackMessageTool()
+
+        # Test connection
+        connection_result = slack_tool.test_slack_connection()
+
+        # Test basic configuration
+        config_status = {
+            "bot_token_configured": bool(config.slack.bot_token),
+            "bot_token_format_valid": config.slack.bot_token.startswith('xoxb-') if config.slack.bot_token else False,
+            "user_id_configured": bool(config.slack.user_id),
+            "user_id_format_valid": config.slack.user_id.startswith('U') if config.slack.user_id else False
+        }
+
+        return {
+            "config_status": config_status,
+            "connection_test": connection_result
+        }
+
+    except Exception as e:
+        logger.error(f"Error testing Slack: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Slack test failed: {str(e)}")
+
 # Legacy endpoint for backward compatibility
 @app.post("/legacy/run")
 async def legacy_run(request: Dict[str, Any]):

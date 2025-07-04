@@ -3451,3 +3451,155 @@ kwargs
 2025-07-04 11:33:39 - Tool.save_chat_history_DB - INFO - ✅ 🔧 Tool 'save_chat_history_DB' executed successfully
 2025-07-04 11:33:40 - src.agents.base_agent - INFO - ✅ ✅ ReportAgent processed request successfully
 2025-07-04 11:33:40 - main - INFO - 🎉 Report generated successfully
+2025-07-04 12:00:01 - src.db.mongo.mongo_db - INFO - ✅ 📦 Collection daily_report already exists
+2025-07-04 12:00:01 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'get_information_from_url' registered
+2025-07-04 12:00:01 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'save_chat_history_DB' registered
+2025-07-04 12:00:01 - src.tools.tool_registry - INFO - ✅ 🔧 Tool Registry initialized
+2025-07-04 12:00:36 - src.db.mongo.mongo_db - INFO - ✅ 📦 Collection daily_report already exists
+2025-07-04 12:00:36 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'get_information_from_url' registered
+2025-07-04 12:00:36 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'save_chat_history_DB' registered
+2025-07-04 12:00:36 - src.tools.tool_registry - INFO - ✅ 🔧 Tool Registry initialized
+2025-07-04 12:00:49 - src.db.mongo.mongo_db - INFO - ✅ 📦 Collection daily_report already exists
+2025-07-04 12:00:49 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'get_information_from_url' registered
+2025-07-04 12:00:49 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'save_chat_history_DB' registered
+2025-07-04 12:00:49 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'send_slack_message' registered
+2025-07-04 12:00:49 - src.tools.tool_registry - INFO - ✅ 🔧 Tool Registry initialized
+2025-07-04 12:01:56 - src.db.mongo.mongo_db - INFO - ✅ 📦 Collection daily_report already exists
+2025-07-04 12:01:56 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'get_information_from_url' registered
+2025-07-04 12:01:56 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'save_chat_history_DB' registered
+2025-07-04 12:01:56 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'send_slack_message' registered
+2025-07-04 12:01:56 - src.tools.tool_registry - INFO - ✅ 🔧 Tool Registry initialized
+2025-07-04 12:03:50 - main - INFO - ✅ 📊 Report generation requested for: https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
+2025-07-04 12:03:50 - src.llms.gemini - INFO - ✅ ✅ Gemini 2.0 Flash initialized successfully
+2025-07-04 12:03:50 - src.agents.base_agent - INFO - ✅ 📑 System prompt loaded from src/prompts/agent_report.md
+2025-07-04 12:03:50 - src.agents.base_agent - INFO - ✅ ✅ ReportAgent agent initialized successfully
+2025-07-04 12:03:50 - src.agents.agent_report - INFO - ✅ 📊 Report Agent initialized successfully
+2025-07-04 12:03:50 - src.tools.tool_registry - INFO - ✅ 🔧 3 LangChain tools available
+2025-07-04 12:03:50 - main - INFO - ✅ 🤖 Agent initialized with 3 tools
+2025-07-04 12:03:50 - main - INFO - ✅ 🔧 Tool available: get_information_from_url - Get data from Google Sheets URL and return the latest entry by date
+2025-07-04 12:03:50 - main - INFO - ✅ 🔧 Tool available: save_chat_history_DB - Save conversation history to MongoDB database
+2025-07-04 12:03:50 - main - INFO - ✅ 🔧 Tool available: send_slack_message - Send a message to Slack user via direct message
+2025-07-04 12:03:50 - src.agents.base_agent - INFO - ✅ 🤖 Agent executor created for ReportAgent with 3 tools
+2025-07-04 12:03:51 - Tool.get_information_from_url - INFO - ✅ Fetching data from: https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
+2025-07-04 12:03:53 - Tool.get_information_from_url - INFO - ✅ ✅ Latest data entry retrieved successfully
+2025-07-04 12:03:53 - Tool.get_information_from_url - INFO - ✅ 🔧 Tool 'get_information_from_url' executed successfully
+2025-07-04 12:03:55 - Tool.send_slack_message - ERROR - ❌ ❌ Failed to send Slack message: invalid_arguments
+2025-07-04 12:03:55 - Tool.send_slack_message - INFO - ✅ 🔧 Tool 'send_slack_message' executed successfully
+2025-07-04 12:03:56 - Tool.send_slack_message - ERROR - ❌ ❌ Failed to send Slack message: invalid_arguments
+2025-07-04 12:03:56 - Tool.send_slack_message - INFO - ✅ 🔧 Tool 'send_slack_message' executed successfully
+2025-07-04 12:03:58 - Tool.save_chat_history_DB - INFO - ✅ 📝 Saving document with user_input length: 33
+2025-07-04 12:03:58 - Tool.save_chat_history_DB - INFO - ✅ 📝 Response content length: 268
+2025-07-04 12:03:58 - Tool.save_chat_history_DB - INFO - ✅ ✅ Chat history saved successfully with new schema
+2025-07-04 12:03:58 - Tool.save_chat_history_DB - INFO - ✅ 🔧 Tool 'save_chat_history_DB' executed successfully
+2025-07-04 12:03:59 - src.agents.base_agent - INFO - ✅ ✅ ReportAgent processed request successfully
+2025-07-04 12:03:59 - main - INFO - 🎉 Report generated successfully
+2025-07-04 12:04:44 - src.db.mongo.mongo_db - INFO - ✅ 📦 Collection daily_report already exists
+2025-07-04 12:04:44 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'get_information_from_url' registered
+2025-07-04 12:04:44 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'save_chat_history_DB' registered
+2025-07-04 12:04:44 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'send_slack_message' registered
+2025-07-04 12:04:44 - src.tools.tool_registry - INFO - ✅ 🔧 Tool Registry initialized
+2025-07-04 12:04:59 - src.db.mongo.mongo_db - INFO - ✅ 📦 Collection daily_report already exists
+2025-07-04 12:04:59 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'get_information_from_url' registered
+2025-07-04 12:04:59 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'save_chat_history_DB' registered
+2025-07-04 12:04:59 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'send_slack_message' registered
+2025-07-04 12:04:59 - src.tools.tool_registry - INFO - ✅ 🔧 Tool Registry initialized
+2025-07-04 12:07:25 - src.db.mongo.mongo_db - INFO - ✅ 📦 Collection daily_report already exists
+2025-07-04 12:07:25 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'get_information_from_url' registered
+2025-07-04 12:07:25 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'save_chat_history_DB' registered
+2025-07-04 12:07:25 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'send_slack_message' registered
+2025-07-04 12:07:25 - src.tools.tool_registry - INFO - ✅ 🔧 Tool Registry initialized
+2025-07-04 12:07:45 - src.db.mongo.mongo_db - INFO - ✅ 📦 Collection daily_report already exists
+2025-07-04 12:07:45 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'get_information_from_url' registered
+2025-07-04 12:07:45 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'save_chat_history_DB' registered
+2025-07-04 12:07:45 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'send_slack_message' registered
+2025-07-04 12:07:45 - src.tools.tool_registry - INFO - ✅ 🔧 Tool Registry initialized
+2025-07-04 12:08:17 - main - INFO - ✅ 📊 Report generation requested for: https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
+2025-07-04 12:08:17 - src.llms.gemini - INFO - ✅ ✅ Gemini 2.0 Flash initialized successfully
+2025-07-04 12:08:17 - src.agents.base_agent - INFO - ✅ 📑 System prompt loaded from src/prompts/agent_report.md
+2025-07-04 12:08:17 - src.agents.base_agent - INFO - ✅ ✅ ReportAgent agent initialized successfully
+2025-07-04 12:08:17 - src.agents.agent_report - INFO - ✅ 📊 Report Agent initialized successfully
+2025-07-04 12:08:17 - src.tools.tool_registry - INFO - ✅ 🔧 3 LangChain tools available
+2025-07-04 12:08:17 - main - INFO - ✅ 🤖 Agent initialized with 3 tools
+2025-07-04 12:08:17 - main - INFO - ✅ 🔧 Tool available: get_information_from_url - Get data from Google Sheets URL and return the latest entry by date
+2025-07-04 12:08:17 - main - INFO - ✅ 🔧 Tool available: save_chat_history_DB - Save conversation history to MongoDB database
+2025-07-04 12:08:17 - main - INFO - ✅ 🔧 Tool available: send_slack_message - Send a message to Slack user via direct message
+2025-07-04 12:08:17 - src.agents.base_agent - INFO - ✅ 🤖 Agent executor created for ReportAgent with 3 tools
+2025-07-04 12:08:18 - Tool.get_information_from_url - INFO - ✅ Fetching data from: https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
+2025-07-04 12:08:19 - Tool.get_information_from_url - INFO - ✅ ✅ Latest data entry retrieved successfully
+2025-07-04 12:08:19 - Tool.get_information_from_url - INFO - ✅ 🔧 Tool 'get_information_from_url' executed successfully
+2025-07-04 12:08:21 - Tool.send_slack_message - WARNING - ⚠️ ⚠️ Failed to open DM channel: missing_scope, trying direct user ID
+2025-07-04 12:08:21 - Tool.send_slack_message - INFO - ✅ 🔍 Sending to channel: U094ZQJ0R6U
+2025-07-04 12:08:21 - Tool.send_slack_message - INFO - ✅ 🔍 Payload: {'channel': 'U094ZQJ0R6U', 'text': '📊 *Daily Report*\n\n*Date*: 04/07/2025\n*Completed*: None\n*In Progress*:\n- Release the first version of the Customer Support agent with Minh\n- Continue research on Conversation Summary\n- Research RAG workflow to increase authenticity and reduce hallucinations for the agent\n*Blocked*: None\n\n_Generated by Report Agent_ 🤖', 'username': 'Report Agent', 'icon_emoji': ':robot_face:'}
+2025-07-04 12:08:21 - Tool.send_slack_message - INFO - ✅ 🔍 Slack API response: {'ok': True, 'channel': 'D094BGCV04A', 'ts': '1751605701.698439', 'message': {'user': 'U094ZQJ0R6U', 'type': 'message', 'ts': '1751605701.698439', 'bot_id': 'B094ZQJ0N2C', 'app_id': 'A0947MGDUFQ', 'text': ':bar_chart: *Daily Report*\n\n*Date*: 04/07/2025\n*Completed*: None\n*In Progress*:\n- Release the first version of the Customer Support agent with Minh\n- Continue research on Conversation Summary\n- Research RAG workflow to increase authenticity and reduce hallucinations for the agent\n*Blocked*: None\n\n_Generated by Report Agent_ :robot_face:', 'team': 'T094ZQ33EKA', 'bot_profile': {'id': 'B094ZQJ0N2C', 'app_id': 'A0947MGDUFQ', 'user_id': 'U094ZQJ0R6U', 'name': 'report', 'icons': {'image_36': 'https://a.slack-edge.com/80588/img/plugins/app/bot_36.png', 'image_48': 'https://a.slack-edge.com/80588/img/plugins/app/bot_48.png', 'image_72': 'https://a.slack-edge.com/80588/img/plugins/app/service_72.png'}, 'deleted': False, 'updated': 1751604815, 'team_id': 'T094ZQ33EKA'}, 'blocks': [{'type': 'rich_text', 'block_id': '63rfr', 'elements': [{'type': 'rich_text_section', 'elements': [{'type': 'emoji', 'name': 'bar_chart', 'unicode': '1f4ca'}, {'type': 'text', 'text': ' '}, {'type': 'text', 'text': 'Daily Report', 'style': {'bold': True}}, {'type': 'text', 'text': '\n\n'}, {'type': 'text', 'text': 'Date', 'style': {'bold': True}}, {'type': 'text', 'text': ': 04/07/2025\n'}, {'type': 'text', 'text': 'Completed', 'style': {'bold': True}}, {'type': 'text', 'text': ': None\n'}, {'type': 'text', 'text': 'In Progress', 'style': {'bold': True}}, {'type': 'text', 'text': ':\n- Release the first version of the Customer Support agent with Minh\n- Continue research on Conversation Summary\n- Research RAG workflow to increase authenticity and reduce hallucinations for the agent\n'}, {'type': 'text', 'text': 'Blocked', 'style': {'bold': True}}, {'type': 'text', 'text': ': None\n\n'}, {'type': 'text', 'text': 'Generated by Report Agent', 'style': {'italic': True}}, {'type': 'text', 'text': ' '}, {'type': 'emoji', 'name': 'robot_face', 'unicode': '1f916'}]}]}]}, 'warning': 'missing_charset', 'response_metadata': {'warnings': ['missing_charset']}}
+2025-07-04 12:08:21 - Tool.send_slack_message - INFO - ✅ ✅ Slack message sent successfully
+2025-07-04 12:08:21 - Tool.send_slack_message - INFO - ✅ 🔧 Tool 'send_slack_message' executed successfully
+2025-07-04 12:08:23 - Tool.save_chat_history_DB - INFO - ✅ 📝 Saving document with user_input length: 33
+2025-07-04 12:08:23 - Tool.save_chat_history_DB - INFO - ✅ 📝 Response content length: 268
+2025-07-04 12:08:23 - Tool.save_chat_history_DB - INFO - ✅ ✅ Chat history saved successfully with new schema
+2025-07-04 12:08:23 - Tool.save_chat_history_DB - INFO - ✅ 🔧 Tool 'save_chat_history_DB' executed successfully
+2025-07-04 12:08:24 - src.agents.base_agent - INFO - ✅ ✅ ReportAgent processed request successfully
+2025-07-04 12:08:24 - main - INFO - 🎉 Report generated successfully
+2025-07-04 12:13:53 - main - INFO - ✅ 📊 Report generation requested for: https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
+2025-07-04 12:13:53 - src.llms.gemini - INFO - ✅ ✅ Gemini 2.0 Flash initialized successfully
+2025-07-04 12:13:53 - src.agents.base_agent - INFO - ✅ 📑 System prompt loaded from src/prompts/agent_report.md
+2025-07-04 12:13:53 - src.agents.base_agent - INFO - ✅ ✅ ReportAgent agent initialized successfully
+2025-07-04 12:13:53 - src.agents.agent_report - INFO - ✅ 📊 Report Agent initialized successfully
+2025-07-04 12:13:53 - src.tools.tool_registry - INFO - ✅ 🔧 3 LangChain tools available
+2025-07-04 12:13:53 - main - INFO - ✅ 🤖 Agent initialized with 3 tools
+2025-07-04 12:13:53 - main - INFO - ✅ 🔧 Tool available: get_information_from_url - Get data from Google Sheets URL and return the latest entry by date
+2025-07-04 12:13:53 - main - INFO - ✅ 🔧 Tool available: save_chat_history_DB - Save conversation history to MongoDB database
+2025-07-04 12:13:53 - main - INFO - ✅ 🔧 Tool available: send_slack_message - Send a message to Slack user via direct message
+2025-07-04 12:13:53 - src.agents.base_agent - INFO - ✅ 🤖 Agent executor created for ReportAgent with 3 tools
+2025-07-04 12:13:55 - Tool.get_information_from_url - INFO - ✅ Fetching data from: https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
+2025-07-04 12:13:56 - Tool.get_information_from_url - INFO - ✅ ✅ Latest data entry retrieved successfully
+2025-07-04 12:13:56 - Tool.get_information_from_url - INFO - ✅ 🔧 Tool 'get_information_from_url' executed successfully
+2025-07-04 12:13:58 - Tool.send_slack_message - WARNING - ⚠️ ⚠️ Failed to open DM channel: cannot_dm_bot, trying direct user ID
+2025-07-04 12:13:58 - Tool.send_slack_message - INFO - ✅ 🔍 Sending to channel: U094ZQJ0R6U
+2025-07-04 12:13:58 - Tool.send_slack_message - INFO - ✅ 🔍 Payload: {'channel': 'U094ZQJ0R6U', 'text': '📊 *Daily Report*\n\n*Date*: 04/07/2025\n*Completed*: None\n*In Progress*:\n- Release the first version of the Customer Support agent with Minh\n- Continue research on Conversation Summary\n- Research RAG workflow to increase authenticity and reduce hallucinations for the agent\n*Blocked*: None\n\n_Generated by Report Agent_ 🤖', 'username': 'Report Agent', 'icon_emoji': ':robot_face:'}
+2025-07-04 12:13:58 - Tool.send_slack_message - INFO - ✅ 🔍 Slack API response: {'ok': True, 'channel': 'D094BGCV04A', 'ts': '1751606038.332879', 'message': {'user': 'U094ZQJ0R6U', 'type': 'message', 'ts': '1751606038.332879', 'bot_id': 'B094ZQJ0N2C', 'app_id': 'A0947MGDUFQ', 'text': ':bar_chart: *Daily Report*\n\n*Date*: 04/07/2025\n*Completed*: None\n*In Progress*:\n- Release the first version of the Customer Support agent with Minh\n- Continue research on Conversation Summary\n- Research RAG workflow to increase authenticity and reduce hallucinations for the agent\n*Blocked*: None\n\n_Generated by Report Agent_ :robot_face:', 'team': 'T094ZQ33EKA', 'bot_profile': {'id': 'B094ZQJ0N2C', 'app_id': 'A0947MGDUFQ', 'user_id': 'U094ZQJ0R6U', 'name': 'report', 'icons': {'image_36': 'https://a.slack-edge.com/80588/img/plugins/app/bot_36.png', 'image_48': 'https://a.slack-edge.com/80588/img/plugins/app/bot_48.png', 'image_72': 'https://a.slack-edge.com/80588/img/plugins/app/service_72.png'}, 'deleted': False, 'updated': 1751604815, 'team_id': 'T094ZQ33EKA'}, 'blocks': [{'type': 'rich_text', 'block_id': 'mXBT', 'elements': [{'type': 'rich_text_section', 'elements': [{'type': 'emoji', 'name': 'bar_chart', 'unicode': '1f4ca'}, {'type': 'text', 'text': ' '}, {'type': 'text', 'text': 'Daily Report', 'style': {'bold': True}}, {'type': 'text', 'text': '\n\n'}, {'type': 'text', 'text': 'Date', 'style': {'bold': True}}, {'type': 'text', 'text': ': 04/07/2025\n'}, {'type': 'text', 'text': 'Completed', 'style': {'bold': True}}, {'type': 'text', 'text': ': None\n'}, {'type': 'text', 'text': 'In Progress', 'style': {'bold': True}}, {'type': 'text', 'text': ':\n- Release the first version of the Customer Support agent with Minh\n- Continue research on Conversation Summary\n- Research RAG workflow to increase authenticity and reduce hallucinations for the agent\n'}, {'type': 'text', 'text': 'Blocked', 'style': {'bold': True}}, {'type': 'text', 'text': ': None\n\n'}, {'type': 'text', 'text': 'Generated by Report Agent', 'style': {'italic': True}}, {'type': 'text', 'text': ' '}, {'type': 'emoji', 'name': 'robot_face', 'unicode': '1f916'}]}]}]}, 'warning': 'missing_charset', 'response_metadata': {'warnings': ['missing_charset']}}
+2025-07-04 12:13:58 - Tool.send_slack_message - INFO - ✅ ✅ Slack message sent successfully
+2025-07-04 12:13:58 - Tool.send_slack_message - INFO - ✅ 🔧 Tool 'send_slack_message' executed successfully
+2025-07-04 12:13:59 - Tool.save_chat_history_DB - INFO - ✅ 📝 Saving document with user_input length: 33
+2025-07-04 12:13:59 - Tool.save_chat_history_DB - INFO - ✅ 📝 Response content length: 268
+2025-07-04 12:13:59 - Tool.save_chat_history_DB - INFO - ✅ ✅ Chat history saved successfully with new schema
+2025-07-04 12:13:59 - Tool.save_chat_history_DB - INFO - ✅ 🔧 Tool 'save_chat_history_DB' executed successfully
+2025-07-04 12:14:01 - src.agents.base_agent - INFO - ✅ ✅ ReportAgent processed request successfully
+2025-07-04 12:14:01 - main - INFO - 🎉 Report generated successfully
+2025-07-04 12:16:41 - src.db.mongo.mongo_db - INFO - ✅ 📦 Collection daily_report already exists
+2025-07-04 12:16:41 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'get_information_from_url' registered
+2025-07-04 12:16:41 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'save_chat_history_DB' registered
+2025-07-04 12:16:41 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'send_slack_message' registered
+2025-07-04 12:16:41 - src.tools.tool_registry - INFO - ✅ 🔧 Tool Registry initialized
+2025-07-04 12:16:41 - __main__ - INFO - ✅ 🚀 Starting Agent Report Service
+2025-07-04 12:16:41 - __main__ - INFO - ✅ 📊 Configuration: Debug=True, Log Level=DEBUG
+2025-07-04 12:16:43 - src.db.mongo.mongo_db - INFO - ✅ 📦 Collection daily_report already exists
+2025-07-04 12:16:43 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'get_information_from_url' registered
+2025-07-04 12:16:43 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'save_chat_history_DB' registered
+2025-07-04 12:16:43 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'send_slack_message' registered
+2025-07-04 12:16:43 - src.tools.tool_registry - INFO - ✅ 🔧 Tool Registry initialized
+2025-07-04 12:16:48 - main - INFO - ✅ 📊 Report generation requested for: https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
+2025-07-04 12:16:48 - src.llms.gemini - INFO - ✅ ✅ Gemini 2.0 Flash initialized successfully
+2025-07-04 12:16:48 - src.agents.base_agent - INFO - ✅ 📑 System prompt loaded from src/prompts/agent_report.md
+2025-07-04 12:16:48 - src.agents.base_agent - INFO - ✅ ✅ ReportAgent agent initialized successfully
+2025-07-04 12:16:48 - src.agents.agent_report - INFO - ✅ 📊 Report Agent initialized successfully
+2025-07-04 12:16:48 - src.tools.tool_registry - INFO - ✅ 🔧 3 LangChain tools available
+2025-07-04 12:16:48 - main - INFO - ✅ 🤖 Agent initialized with 3 tools
+2025-07-04 12:16:48 - main - INFO - ✅ 🔧 Tool available: get_information_from_url - Get data from Google Sheets URL and return the latest entry by date
+2025-07-04 12:16:48 - main - INFO - ✅ 🔧 Tool available: save_chat_history_DB - Save conversation history to MongoDB database
+2025-07-04 12:16:48 - main - INFO - ✅ 🔧 Tool available: send_slack_message - Send a message to Slack user via direct message
+2025-07-04 12:16:48 - src.agents.base_agent - INFO - ✅ 🤖 Agent executor created for ReportAgent with 3 tools
+2025-07-04 12:16:49 - Tool.get_information_from_url - INFO - ✅ Fetching data from: https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
+2025-07-04 12:16:51 - Tool.get_information_from_url - INFO - ✅ ✅ Latest data entry retrieved successfully
+2025-07-04 12:16:51 - Tool.get_information_from_url - INFO - ✅ 🔧 Tool 'get_information_from_url' executed successfully
+2025-07-04 12:16:52 - Tool.send_slack_message - INFO - ✅ 👤 Sending to user: U094ZQ33EL8
+2025-07-04 12:16:52 - Tool.send_slack_message - INFO - ✅ 🔍 Sending to channel: D094ZQJ2KEU
+2025-07-04 12:16:52 - Tool.send_slack_message - INFO - ✅ 🔍 Payload: {'channel': 'D094ZQJ2KEU', 'text': '📊 *Daily Report*\n\n*Date*: 04/07/2025\n*Completed*: None\n*In Progress*:\n- Release the first version of the Customer Support agent with Minh\n- Continue research on Conversation Summary\n- Research RAG workflow to increase authenticity and reduce hallucinations for the agent\n*Blocked*: None\n\n_Generated by Report Agent_ 🤖', 'username': 'Report Agent', 'icon_emoji': ':robot_face:'}
+2025-07-04 12:16:53 - Tool.send_slack_message - INFO - ✅ 🔍 Slack API response: {'ok': True, 'channel': 'D094ZQJ2KEU', 'ts': '1751606213.071739', 'message': {'user': 'U094ZQJ0R6U', 'type': 'message', 'ts': '1751606213.071739', 'bot_id': 'B094ZQJ0N2C', 'app_id': 'A0947MGDUFQ', 'text': ':bar_chart: *Daily Report*\n\n*Date*: 04/07/2025\n*Completed*: None\n*In Progress*:\n- Release the first version of the Customer Support agent with Minh\n- Continue research on Conversation Summary\n- Research RAG workflow to increase authenticity and reduce hallucinations for the agent\n*Blocked*: None\n\n_Generated by Report Agent_ :robot_face:', 'team': 'T094ZQ33EKA', 'bot_profile': {'id': 'B094ZQJ0N2C', 'app_id': 'A0947MGDUFQ', 'user_id': 'U094ZQJ0R6U', 'name': 'report', 'icons': {'image_36': 'https://a.slack-edge.com/80588/img/plugins/app/bot_36.png', 'image_48': 'https://a.slack-edge.com/80588/img/plugins/app/bot_48.png', 'image_72': 'https://a.slack-edge.com/80588/img/plugins/app/service_72.png'}, 'deleted': False, 'updated': 1751604815, 'team_id': 'T094ZQ33EKA'}, 'blocks': [{'type': 'rich_text', 'block_id': 'eWSrm', 'elements': [{'type': 'rich_text_section', 'elements': [{'type': 'emoji', 'name': 'bar_chart', 'unicode': '1f4ca'}, {'type': 'text', 'text': ' '}, {'type': 'text', 'text': 'Daily Report', 'style': {'bold': True}}, {'type': 'text', 'text': '\n\n'}, {'type': 'text', 'text': 'Date', 'style': {'bold': True}}, {'type': 'text', 'text': ': 04/07/2025\n'}, {'type': 'text', 'text': 'Completed', 'style': {'bold': True}}, {'type': 'text', 'text': ': None\n'}, {'type': 'text', 'text': 'In Progress', 'style': {'bold': True}}, {'type': 'text', 'text': ':\n- Release the first version of the Customer Support agent with Minh\n- Continue research on Conversation Summary\n- Research RAG workflow to increase authenticity and reduce hallucinations for the agent\n'}, {'type': 'text', 'text': 'Blocked', 'style': {'bold': True}}, {'type': 'text', 'text': ': None\n\n'}, {'type': 'text', 'text': 'Generated by Report Agent', 'style': {'italic': True}}, {'type': 'text', 'text': ' '}, {'type': 'emoji', 'name': 'robot_face', 'unicode': '1f916'}]}]}]}, 'warning': 'missing_charset', 'response_metadata': {'warnings': ['missing_charset']}}
+2025-07-04 12:16:53 - Tool.send_slack_message - INFO - ✅ ✅ Slack message sent successfully
+2025-07-04 12:16:53 - Tool.send_slack_message - INFO - ✅ 🔧 Tool 'send_slack_message' executed successfully
+2025-07-04 12:16:54 - Tool.save_chat_history_DB - INFO - ✅ 📝 Saving document with user_input length: 33
+2025-07-04 12:16:54 - Tool.save_chat_history_DB - INFO - ✅ 📝 Response content length: 268
+2025-07-04 12:16:54 - Tool.save_chat_history_DB - INFO - ✅ ✅ Chat history saved successfully with new schema
+2025-07-04 12:16:54 - Tool.save_chat_history_DB - INFO - ✅ 🔧 Tool 'save_chat_history_DB' executed successfully
+2025-07-04 12:16:55 - src.agents.base_agent - INFO - ✅ ✅ ReportAgent processed request successfully
+2025-07-04 12:16:55 - main - INFO - 🎉 Report generated successfully

@@ -48,6 +48,21 @@ class LLMConfig:
         )
 
 @dataclass
+class SlackConfig:
+    """Slack configuration settings"""
+    bot_token: str
+    user_id: str
+    channel_id: Optional[str]
+
+    @classmethod
+    def from_env(cls) -> 'SlackConfig':
+        return cls(
+            bot_token=os.getenv("SLACK_BOT_TOKEN", ""),
+            user_id=os.getenv("SLACK_USER_ID", ""),
+            channel_id=os.getenv("SLACK_CHANNEL_ID")
+        )
+
+@dataclass
 class AppConfig:
     """Application configuration"""
     debug: bool
@@ -55,10 +70,11 @@ class AppConfig:
     default_sheet_url: Optional[str]
     api_host: str
     api_port: int
-    
+
     # Sub-configurations
     database: DatabaseConfig
     llm: LLMConfig
+    slack: SlackConfig
     
     @classmethod
     def from_env(cls) -> 'AppConfig':
@@ -69,7 +85,8 @@ class AppConfig:
             api_host=os.getenv("API_HOST", "0.0.0.0"),
             api_port=int(os.getenv("API_PORT", "5000")),
             database=DatabaseConfig.from_env(),
-            llm=LLMConfig.from_env()
+            llm=LLMConfig.from_env(),
+            slack=SlackConfig.from_env()
         )
 
 # Global config instance
