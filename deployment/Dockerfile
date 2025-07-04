@@ -17,11 +17,11 @@ COPY deployment/requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
+# Set Python path first
+ENV PYTHONPATH="/app:${PYTHONPATH}"
+
 # Copy application code
 COPY . /app/
-
-# Set Python path
-ENV PYTHONPATH="${PYTHONPATH}:/app"
 
 # Create directories for scheduler state and logs
 RUN mkdir -p /app/data /app/logs

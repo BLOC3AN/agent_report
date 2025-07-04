@@ -6,7 +6,7 @@
 import requests
 from typing import Dict, Any
 from src.tools.base_tool import SimpleBaseTool
-from src.config import config
+from src.config.settings import config
 from src.logs.logger import Logger
 
 logger = Logger(__name__)

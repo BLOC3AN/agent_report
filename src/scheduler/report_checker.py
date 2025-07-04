@@ -8,7 +8,7 @@ import requests
 from datetime import datetime, date
 from typing import Dict, Any, Optional, Tuple
 from io import BytesIO
-from src.config import config
+from src.config import settings as config
 from src.logs.logger import Logger
 
 logger = Logger(__name__)

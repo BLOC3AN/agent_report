@@ -14,7 +14,7 @@ from src.scheduler.report_checker import ReportChecker
 from src.scheduler.reminder_service import ReminderService
 from src.agents.agent_report import AgentReporter
 from src.tools.tool_registry import tool_registry
-from src.config import config
+from src.config import settings as config
 from src.logs.logger import Logger
 
 logger = Logger(__name__)

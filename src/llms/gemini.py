@@ -5,7 +5,7 @@
 
 from langchain_google_genai import ChatGoogleGenerativeAI
 from src.core.interfaces import LLMInterface
-from src.config import config
+from src.config import settings as config
 from src.logs.logger import Logger
 
 logger = Logger(__name__)

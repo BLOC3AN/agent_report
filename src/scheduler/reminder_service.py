@@ -6,7 +6,7 @@
 from datetime import datetime
 from typing import Dict, Any
 from src.tools.send_slack_message import SendSlackMessageTool
-from src.config import config
+from src.config import settings as config
 from src.logs.logger import Logger
 
 logger = Logger(__name__)

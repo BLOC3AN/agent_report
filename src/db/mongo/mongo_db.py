@@ -8,7 +8,7 @@ from pymongo import MongoClient
 from pymongo.collection import Collection
 from pymongo.database import Database
 from src.core.interfaces import DatabaseInterface
-from src.config import config
+from src.config.settings import config
 from src.logs.logger import Logger
 
 logger = Logger(__name__)

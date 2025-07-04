@@ -8,7 +8,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain.agents import AgentExecutor
 
 from src.core.interfaces import BaseAgent, AgentContext, LLMInterface
-from src.config import config
+from src.config.settings import config
 from src.logs.logger import Logger
 
 logger = Logger(__name__)
