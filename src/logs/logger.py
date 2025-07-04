@@ -6,7 +6,7 @@
 import logging
 import os
 from typing import Optional
-from src.config import config
+from src.config import settings as config
 
 class Logger:
     """Enhanced logger with configuration support"""
@@ -15,7 +15,7 @@ class Logger:
         self.logger = logging.getLogger(name)
 
         # Set log level from configuration
-        log_level = getattr(logging, config.log_level.upper(), logging.INFO)
+        log_level = getattr(logging, config.config.log_level.upper(), logging.INFO)
         self.logger.setLevel(log_level)
 
         # Avoid duplicate handlers
@@ -30,7 +30,7 @@ class Logger:
         )
 
         # Console handler
-        if config.debug:
+        if config.config.debug:
             console_handler = logging.StreamHandler()
             console_handler.setFormatter(formatter)
             self.logger.addHandler(console_handler)
