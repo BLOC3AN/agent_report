@@ -7,21 +7,44 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Dict, Any, Optional
+from contextlib import asynccontextmanager
 import uvicorn
 
 from src.agents.agent_report import AgentReporter
 from src.tools.tool_registry import tool_registry
+from src.scheduler import scheduler_service
 from src.config import config
 from src.logs.logger import Logger
 
 logger = Logger(__name__)
 
+# Lifespan context manager
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Manage application lifespan"""
+    # Startup
+    try:
+        scheduler_service.start()
+        logger.info("🚀 Application started with scheduler")
+    except Exception as e:
+        logger.error(f"❌ Error starting scheduler: {str(e)}")
+
+    yield
+
+    # Shutdown
+    try:
+        scheduler_service.stop()
+        logger.info("⏹️ Application shutdown with scheduler stopped")
+    except Exception as e:
+        logger.error(f"❌ Error stopping scheduler: {str(e)}")
+
 # Initialize FastAPI app
 app = FastAPI(
     title="Agent Report Service",
-    description="AI-powered report generation service",
+    description="AI-powered report generation service with automated scheduling",
     version="2.0.0",
-    debug=config.debug
+    debug=config.debug,
+    lifespan=lifespan
 )
 
 # Add CORS middleware
@@ -150,6 +173,28 @@ async def test_slack_connection():
     except Exception as e:
         logger.error(f"Error testing Slack: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Slack test failed: {str(e)}")
+
+@app.get("/scheduler/status")
+async def get_scheduler_status():
+    """Get scheduler status and configuration"""
+    try:
+        return scheduler_service.get_status()
+    except Exception as e:
+        logger.error(f"Error getting scheduler status: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Scheduler status error: {str(e)}")
+
+@app.post("/scheduler/trigger")
+async def trigger_manual_check():
+    """Trigger manual scheduler check (for testing)"""
+    try:
+        result = scheduler_service.trigger_manual_check()
+        if result.get("success"):
+            return result
+        else:
+            raise HTTPException(status_code=500, detail=result.get("error"))
+    except Exception as e:
+        logger.error(f"Error triggering manual check: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Manual check error: {str(e)}")
 
 # Legacy endpoint for backward compatibility
 @app.post("/legacy/run")

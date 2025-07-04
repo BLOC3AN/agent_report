@@ -1,28 +1,11 @@
 # ==========================================
-# deployment/docker-compose.yml - Agent Report Service
+# deployment/docker-compose.prod.yml - Production with External MongoDB
 # ==========================================
 
 version: '3.8'
 
 services:
-  # MongoDB Database
-  mongodb:
-    image: mongo:7.0
-    container_name: agent-report-mongodb
-    restart: unless-stopped
-    ports:
-      - "27017:27017"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: password
-      MONGO_INITDB_DATABASE: agent_reports
-    volumes:
-      - mongodb_data:/data/db
-      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-    networks:
-      - agent-network
-
-  # Agent Report Service
+  # Agent Report Service (Production - No local MongoDB)
   agent-report:
     build:
       context: ..
@@ -37,9 +20,8 @@ services:
       - API_HOST=0.0.0.0
       - API_PORT=5000
 
-      # Database Configuration
-      # Use external MongoDB if MONGODB_URI is set, otherwise use local container
-      - MONGODB_URI=${MONGODB_URI:-mongodb://admin:password@mongodb:27017/agent_reports?authSource=admin}
+      # Database Configuration (External MongoDB Atlas)
+      - MONGODB_URI=${MONGODB_URI}
       - MONGODB_DB_NAME=${MONGODB_DB_NAME:-agent_reports}
       - MONGODB_COLLECTION_NAME=${MONGODB_COLLECTION_NAME:-chat_history}
 
@@ -51,8 +33,12 @@ services:
       - LLM_MAX_TOKENS=2048
       - LLM_VERBOSE=false
 
+      # Google API Configuration
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+
       # Google Sheets Configuration (required for scheduler)
-      - DEFAULT_SHEET_URL=https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
+      - DEFAULT_SHEET_URL=${DEFAULT_SHEET_URL:-https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing}
 
       # Slack Integration (required for scheduler)
       - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
@@ -60,17 +46,15 @@ services:
       - SLACK_CHANNEL_ID=${SLACK_CHANNEL_ID:-}
 
       # Scheduler Configuration
-      - SCHEDULER_ENABLED=true
-      - SCHEDULER_TIMEZONE=Asia/Ho_Chi_Minh
-      - SCHEDULER_CHECK_TIMES=10:00,12:00,15:00
-      - SCHEDULER_MAX_REMINDERS=3
+      - SCHEDULER_ENABLED=${SCHEDULER_ENABLED:-true}
+      - SCHEDULER_TIMEZONE=${SCHEDULER_TIMEZONE:-Asia/Ho_Chi_Minh}
+      - SCHEDULER_CHECK_TIMES=${SCHEDULER_CHECK_TIMES:-10:00,12:00,15:00}
+      - SCHEDULER_MAX_REMINDERS=${SCHEDULER_MAX_REMINDERS:-3}
       - SCHEDULER_STATE_FILE=/app/data/daily_report_state.json
 
     volumes:
       - scheduler_data:/app/data
       - ./logs:/app/logs
-    depends_on:
-      - mongodb
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
@@ -82,8 +66,6 @@ services:
       - agent-network
 
 volumes:
-  mongodb_data:
-    driver: local
   scheduler_data:
     driver: local
 

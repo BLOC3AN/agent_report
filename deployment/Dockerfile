@@ -23,10 +23,16 @@ COPY . /app/
 # Set Python path
 ENV PYTHONPATH="${PYTHONPATH}:/app"
 
+# Create directories for scheduler state and logs
+RUN mkdir -p /app/data /app/logs
+
 # Create non-root user for security
 RUN useradd --create-home --shell /bin/bash app && \
     chown -R app:app /app
 USER app
+
+# Create volume for scheduler state persistence
+VOLUME ["/app/data"]
 
 # Expose port for FastAPI only (removed Streamlit)
 EXPOSE 5000

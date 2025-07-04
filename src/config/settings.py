@@ -63,6 +63,26 @@ class SlackConfig:
         )
 
 @dataclass
+class SchedulerConfig:
+    """Scheduler configuration settings"""
+    enabled: bool
+    timezone: str
+    check_times: list
+    max_reminders: int
+
+    @classmethod
+    def from_env(cls) -> 'SchedulerConfig':
+        check_times_str = os.getenv("SCHEDULER_CHECK_TIMES", "10:00,12:00,15:00")
+        check_times = [time.strip() for time in check_times_str.split(",")]
+
+        return cls(
+            enabled=os.getenv("SCHEDULER_ENABLED", "true").lower() == "true",
+            timezone=os.getenv("SCHEDULER_TIMEZONE", "Asia/Ho_Chi_Minh"),
+            check_times=check_times,
+            max_reminders=int(os.getenv("SCHEDULER_MAX_REMINDERS", "3"))
+        )
+
+@dataclass
 class AppConfig:
     """Application configuration"""
     debug: bool
@@ -75,6 +95,7 @@ class AppConfig:
     database: DatabaseConfig
     llm: LLMConfig
     slack: SlackConfig
+    scheduler: SchedulerConfig
     
     @classmethod
     def from_env(cls) -> 'AppConfig':
@@ -86,7 +107,8 @@ class AppConfig:
             api_port=int(os.getenv("API_PORT", "5000")),
             database=DatabaseConfig.from_env(),
             llm=LLMConfig.from_env(),
-            slack=SlackConfig.from_env()
+            slack=SlackConfig.from_env(),
+            scheduler=SchedulerConfig.from_env()
         )
 
 # Global config instance

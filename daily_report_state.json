@@ -1,0 +1,13 @@
+{
+  "2025-07-04": {
+    "date": "2025-07-04",
+    "status": "PENDING",
+    "check_count": 0,
+    "last_check": null,
+    "report_found": false,
+    "notifications_sent": 0,
+    "completed_at": null,
+    "error_count": 0,
+    "last_error": null
+  }
+}

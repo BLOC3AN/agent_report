@@ -25,3 +25,7 @@ python-dotenv>=1.0.0
 
 # Slack Integration
 slack-sdk>=3.21.0
+
+# Scheduler
+apscheduler>=3.10.0
+pytz>=2023.3
