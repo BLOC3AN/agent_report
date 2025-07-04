@@ -147,7 +147,7 @@ class DailyStateManager:
         """Check if should send reminder"""
         today_state = self.get_today_state()
         return (
-            today_state["notifications_sent"] < config.scheduler.max_reminders and
+            today_state["notifications_sent"] < config.SchedulerConfig.from_env().max_reminders and
             not today_state["report_found"] and
             today_state["status"] not in [ReportStatus.COMPLETED.value, ReportStatus.PROCESSING.value]
         )

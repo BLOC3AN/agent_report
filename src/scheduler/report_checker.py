@@ -35,7 +35,7 @@ class ReportChecker:
             
             # Fetch data from Google Sheets
             data = self._fetch_sheet_data(sheet_url)
-            if not data:
+            if data is None:
                 self.logger.warning("⚠️ No data fetched from Google Sheets")
                 return False, None
             
@@ -124,9 +124,10 @@ class ReportChecker:
             
             for column in content_columns:
                 value = row_dict.get(column, "")
-                if value and str(value).strip() and str(value).strip().lower() not in ['none', 'null', '', 'nan']:
+                str_value = str(value).strip() if value is not None else ""
+                if str_value and str_value.lower() not in ['none', 'null', '', 'nan']:
                     # Found non-empty, meaningful content
-                    self.logger.info(f"📝 Found content in column '{column}': {str(value)[:50]}...")
+                    self.logger.info(f"📝 Found content in column '{column}': {str_value[:50]}...")
                     return True
             
             self.logger.info("📝 No meaningful content found in any column")
