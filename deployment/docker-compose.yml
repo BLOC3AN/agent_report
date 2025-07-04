@@ -1,0 +1,58 @@
+# ==========================================
+# deployment/docker-compose.yml - Agent Report Service
+# ==========================================
+
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: agent-report-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: agent_reports
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - agent-network
+
+  # Agent Report Service
+  agent-report:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: agent-report-service
+    ports:
+      - "5000:5000"
+    env_file:
+      - ../.env
+    volumes:
+      - scheduler_data:/app/data
+      - ../logs:/app/logs
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    networks:
+      - agent-network
+
+volumes:
+  mongodb_data:
+    driver: local
+  scheduler_data:
+    driver: local
+
+networks:
+  agent-network:
+    driver: bridge
