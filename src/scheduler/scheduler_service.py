@@ -19,6 +19,9 @@ from src.logs.logger import Logger
 
 logger = Logger(__name__)
 
+from src.config.settings import SchedulerConfig
+scheduler = SchedulerConfig.from_env()
+
 class SchedulerService:
     """Main scheduler service for automated daily reports"""
     
@@ -26,7 +29,7 @@ class SchedulerService:
         self.scheduler = None
         self.report_checker = ReportChecker()
         self.reminder_service = ReminderService()
-        self.timezone = pytz.timezone(config.SchedulerConfig.from_env().timezone)
+        self.timezone = pytz.timezone(scheduler.timezone)
         self.logger = Logger("SchedulerService")
         
         # Initialize agent
@@ -38,7 +41,7 @@ class SchedulerService:
     
     def start(self):
         """Start the scheduler"""
-        if not config.SchedulerConfig.from_env().enabled:
+        if not scheduler.enabled:
             self.logger.info("⏸️ Scheduler is disabled in configuration")
             return
         
@@ -46,7 +49,7 @@ class SchedulerService:
             self.scheduler = BackgroundScheduler(timezone=self.timezone)
             
             # Schedule daily checks
-            for check_time in config.SchedulerConfig.from_env().check_times:
+            for check_time in scheduler.check_times:
                 hour, minute = map(int, check_time.split(':'))
                 
                 self.scheduler.add_job(
@@ -213,10 +216,10 @@ class SchedulerService:
                 "scheduler": scheduler_status,
                 "state": state_manager.get_stats(),
                 "config": {
-                    "enabled": config.SchedulerConfig.from_env().enabled,
-                    "timezone": config.SchedulerConfig.from_env().timezone,
-                    "check_times": config.SchedulerConfig.from_env().check_times,
-                    "max_reminders": config.SchedulerConfig.from_env().max_reminders
+                    "enabled": scheduler.enabled,
+                    "timezone": scheduler.timezone,
+                    "check_times": scheduler.check_times,
+                    "max_reminders": scheduler.max_reminders
                 }
             }
             
