@@ -1,42 +1,24 @@
 # 🐳 Docker Deployment Guide
 
-## 🚀 Quick Start with Docker Compose
+## 🚀 Quick Start
 
 ### **1. Prerequisites:**
 - Docker & Docker Compose installed
 - Slack Bot Token & User ID
 - Google API Key & Gemini API Key
 
-### **2. Choose Deployment Option:**
-
-#### **Option A: Local Development (with local MongoDB)**
+### **2. Setup Environment:**
 ```bash
-# Copy environment template
-cp deployment/.env.docker deployment/.env
-
-# Edit with your credentials (MongoDB will run in container)
-nano deployment/.env
-
-# Deploy with local MongoDB
-docker-compose -f deployment/docker-compose.yml --env-file deployment/.env up -d
-```
-
-#### **Option B: Production (with MongoDB Atlas)**
-```bash
-# Copy production template
-cp deployment/.env.prod deployment/.env
-
-# Edit with your credentials including MongoDB Atlas URI
-nano deployment/.env
-
-# Deploy without local MongoDB
-docker-compose -f deployment/docker-compose.prod.yml --env-file deployment/.env up -d
+# Create .env file in project root with your credentials
+cp .env.example .env
+nano .env
 ```
 
 ### **3. Required Environment Variables:**
-
-#### **For Local Development:**
 ```bash
+# Database (MongoDB Atlas or local)
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/agent_reports
+
 # Slack Integration
 SLACK_BOT_TOKEN=xoxb-your-actual-bot-token
 SLACK_USER_ID=U1234567890
@@ -45,33 +27,23 @@ SLACK_USER_ID=U1234567890
 GOOGLE_API_KEY=your-google-api-key
 GEMINI_API_KEY=your-gemini-api-key
 
-# MongoDB will be created automatically in container
-```
-
-#### **For Production:**
-```bash
-# MongoDB Atlas (REQUIRED)
-MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/agent_reports
-
-# Slack Integration
-SLACK_BOT_TOKEN=xoxb-your-production-bot-token
-SLACK_USER_ID=U1234567890
-
-# API Keys
-GOOGLE_API_KEY=your-google-api-key
-GEMINI_API_KEY=your-gemini-api-key
+# Google Sheets URL
+DEFAULT_SHEET_URL=your-google-sheets-url
 ```
 
 ### **4. Deploy:**
 ```bash
-# Build and start all services
-docker-compose -f deployment/docker-compose.yml --env-file deployment/.env up -d
+# Simple deploy (from project root)
+./deploy.sh
+
+# Or manual
+docker-compose up -d --build
 
 # Check status
-docker-compose -f deployment/docker-compose.yml ps
+docker-compose ps
 
 # View logs
-docker-compose -f deployment/docker-compose.yml logs -f agent-report
+docker-compose logs -f
 ```
 
 ## 📊 **Services Included:**

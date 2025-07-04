@@ -3707,3 +3707,23 @@ kwargs
 2025-07-04 13:03:28 - SchedulerService - INFO - ✅ 📅 Scheduled daily check at 15:00
 2025-07-04 13:03:28 - SchedulerService - INFO - ✅ 🚀 Scheduler started successfully
 2025-07-04 13:03:28 - main - INFO - ✅ 🚀 Application started with scheduler
+2025-07-04 13:31:35 - SchedulerService - INFO - ✅ ⏹️ Scheduler stopped
+2025-07-04 13:31:35 - main - INFO - ✅ ⏹️ Application shutdown with scheduler stopped
+2025-07-04 13:31:37 - src.db.mongo.mongo_db - INFO - ✅ 📦 Collection daily_report already exists
+2025-07-04 13:31:37 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'get_information_from_url' registered
+2025-07-04 13:31:37 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'save_chat_history_DB' registered
+2025-07-04 13:31:37 - src.tools.tool_registry - INFO - ✅ ✅ Tool 'send_slack_message' registered
+2025-07-04 13:31:37 - src.tools.tool_registry - INFO - ✅ 🔧 Tool Registry initialized
+2025-07-04 13:31:38 - src.scheduler.state_manager - INFO - ✅ 📂 State loaded from daily_report_state.json
+2025-07-04 13:31:38 - src.scheduler.state_manager - INFO - ✅ 📊 Daily State Manager initialized with file: daily_report_state.json
+2025-07-04 13:31:38 - src.llms.gemini - INFO - ✅ ✅ Gemini 2.0 Flash initialized successfully
+2025-07-04 13:31:38 - src.agents.base_agent - INFO - ✅ 📑 System prompt loaded from src/prompts/agent_report.md
+2025-07-04 13:31:38 - src.agents.base_agent - INFO - ✅ ✅ ReportAgent agent initialized successfully
+2025-07-04 13:31:38 - src.agents.agent_report - INFO - ✅ 📊 Report Agent initialized successfully
+2025-07-04 13:31:38 - src.tools.tool_registry - INFO - ✅ 🔧 3 LangChain tools available
+2025-07-04 13:31:38 - SchedulerService - INFO - ✅ 🕐 Scheduler Service initialized
+2025-07-04 13:31:38 - SchedulerService - INFO - ✅ 📅 Scheduled daily check at 10:00
+2025-07-04 13:31:38 - SchedulerService - INFO - ✅ 📅 Scheduled daily check at 12:00
+2025-07-04 13:31:38 - SchedulerService - INFO - ✅ 📅 Scheduled daily check at 15:00
+2025-07-04 13:31:38 - SchedulerService - INFO - ✅ 🚀 Scheduler started successfully
+2025-07-04 13:31:38 - main - INFO - ✅ 🚀 Application started with scheduler
