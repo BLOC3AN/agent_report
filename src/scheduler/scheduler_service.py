@@ -26,7 +26,7 @@ class SchedulerService:
         self.scheduler = None
         self.report_checker = ReportChecker()
         self.reminder_service = ReminderService()
-        self.timezone = pytz.timezone(config.scheduler.timezone)
+        self.timezone = pytz.timezone(config.SchedulerConfig.timezone)
         self.logger = Logger("SchedulerService")
         
         # Initialize agent
