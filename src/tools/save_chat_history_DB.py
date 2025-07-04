@@ -30,12 +30,19 @@ class SaveChatHistoryTool(SimpleBaseTool):
             if 'data' in kwargs:
                 # Legacy format
                 data = kwargs['data']
+                if isinstance(data, str):
+                    # If data is string, try to parse as JSON
+                    try:
+                        data = json.loads(data)
+                    except json.JSONDecodeError:
+                        data = {"user_input": data}
+
                 document = {
-                    "user_input": data.get("user_input", ""),
-                    "response": data.get("response", []),
-                    "conversation": data.get("conversation", {}),
+                    "user_input": data.get("user_input", "") if isinstance(data, dict) else str(data),
+                    "response": data.get("response", []) if isinstance(data, dict) else [],
+                    "conversation": data.get("conversation", {}) if isinstance(data, dict) else {},
                     "timestamp": datetime.now(),
-                    "metadata": data.get("metadata", {})
+                    "metadata": data.get("metadata", {}) if isinstance(data, dict) else {}
                 }
             else:
                 # New format with direct parameters
@@ -69,8 +76,12 @@ class SaveChatHistoryTool(SimpleBaseTool):
             # Debug logging
             self.logger.info(f"📝 Saving document with user_input length: {len(document.get('user_input', ''))}")
             if document.get('response') and len(document['response']) > 0:
-                content_length = len(document['response'][0].get('content', ''))
-                self.logger.info(f"📝 Response content length: {content_length}")
+                first_response = document['response'][0]
+                if isinstance(first_response, dict):
+                    content_length = len(first_response.get('content', ''))
+                    self.logger.info(f"📝 Response content length: {content_length}")
+                else:
+                    self.logger.info(f"📝 Response is string: {len(str(first_response))}")
 
             # Insert into MongoDB
             result = self.db.insert_one(document)

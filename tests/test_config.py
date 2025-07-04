@@ -16,8 +16,8 @@ class TestDatabaseConfig:
         with patch.dict(os.environ, {}, clear=True):
             config = DatabaseConfig.from_env()
             assert config.mongodb_uri == "mongodb://localhost:27017"
-            assert config.mongodb_db_name == "agent_reports"
-            assert config.mongodb_collection_name == "chat_history"
+            assert config.mongodb_db_name == "report"
+            assert config.mongodb_collection_name == "daily_report"
     
     def test_env_override(self):
         """Test environment variable override"""

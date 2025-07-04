@@ -41,6 +41,17 @@ class TestGetInformationFromURLTool:
         mock_df.is_empty.return_value = False
         mock_df.columns = ['Date', 'Task']
         mock_df.to_dicts.return_value = [{'Date': '2025-01-01', 'Task': 'Test task'}]
+
+        # Mock the with_columns and sort methods
+        mock_df_formatted = Mock()
+        mock_df_formatted.iter_rows.return_value = [('2025-01-01', 'Test task')]
+        mock_df.with_columns.return_value.sort.return_value = mock_df_formatted
+
+        # Mock filter method
+        mock_filtered = Mock()
+        mock_filtered.to_dicts.return_value = [{'Date': '2025-01-01', 'Task': 'Test task'}]
+        mock_df.filter.return_value = mock_filtered
+
         mock_read_csv.return_value = mock_df
         
         result = self.tool.execute(url="https://test.com")
@@ -75,8 +86,15 @@ class TestSaveChatHistoryTool:
     
     def setup_method(self):
         """Setup test method"""
-        with patch('src.tools.save_chat_history_DB.MongoDB'):
-            self.tool = SaveChatHistoryTool()
+        self.mock_db_patcher = patch('src.tools.save_chat_history_DB.MongoDB')
+        self.mock_db_class = self.mock_db_patcher.start()
+        self.mock_db = Mock()
+        self.mock_db_class.return_value = self.mock_db
+        self.tool = SaveChatHistoryTool()
+
+    def teardown_method(self):
+        """Cleanup test method"""
+        self.mock_db_patcher.stop()
     
     def test_tool_initialization(self):
         """Test tool initialization"""
@@ -88,7 +106,7 @@ class TestSaveChatHistoryTool:
         # Mock MongoDB
         mock_result = Mock()
         mock_result.inserted_id = "test_id"
-        self.tool.db.insert_one.return_value = mock_result
+        self.mock_db.insert_one.return_value = mock_result
         
         test_data = {
             "response": ["test response"],
@@ -102,7 +120,7 @@ class TestSaveChatHistoryTool:
     
     def test_database_error(self):
         """Test database error handling"""
-        self.tool.db.insert_one.side_effect = Exception("DB Error")
+        self.mock_db.insert_one.side_effect = Exception("DB Error")
         
         result = self.tool.execute(data={})
         assert result["status"] == "error"
@@ -110,13 +128,11 @@ class TestSaveChatHistoryTool:
 
 class TestToolRegistry:
     """Test tool registry"""
-    
+
     def setup_method(self):
         """Setup test method"""
-        with patch('src.tools.tool_registry.GetInformationFromURLTool'), \
-             patch('src.tools.tool_registry.SaveChatHistoryTool'):
-            self.registry = ToolRegistry()
-    
+        self.registry = ToolRegistry()
+
     def test_registry_initialization(self):
         """Test registry initialization"""
         assert len(self.registry._tools) >= 0

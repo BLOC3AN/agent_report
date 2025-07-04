@@ -213,6 +213,9 @@ async def legacy_run(request: Dict[str, Any]):
 
         return result
 
+    except HTTPException:
+        # Re-raise HTTPException as-is (preserves status code)
+        raise
     except Exception as e:
         error_msg = f"Legacy endpoint error: {str(e)}"
         logger.error(error_msg)

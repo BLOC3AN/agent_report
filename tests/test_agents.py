@@ -28,7 +28,7 @@ class TestAgentReporter:
         assert isinstance(prompt, str)
         assert len(prompt) > 0
     
-    @patch('src.agents.base_agent.create_react_agent')
+    @patch('langchain.agents.create_react_agent')
     @patch('src.agents.base_agent.AgentExecutor')
     def test_process_success(self, mock_executor_class, mock_create_agent):
         """Test successful processing"""
@@ -55,7 +55,7 @@ class TestAgentReporter:
         assert "Test report generated" in result["output"]
         assert result["agent"] == "ReportAgent"
     
-    @patch('src.agents.base_agent.create_react_agent')
+    @patch('langchain.agents.create_react_agent')
     def test_process_error(self, mock_create_agent):
         """Test error handling in processing"""
         mock_create_agent.side_effect = Exception("Test error")
