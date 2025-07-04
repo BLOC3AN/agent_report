@@ -12,7 +12,7 @@ import uvicorn
 
 from src.agents.agent_report import AgentReporter
 from src.tools.tool_registry import tool_registry
-from src.scheduler import scheduler_service
+from src.scheduler.scheduler_service import SchedulerService
 from src.config import settings as config
 from src.logs.logger import Logger
 
@@ -24,7 +24,7 @@ async def lifespan(app: FastAPI):
     """Manage application lifespan"""
     # Startup
     try:
-        scheduler_service.start()
+        SchedulerService().start()
         logger.info("🚀 Application started with scheduler")
     except Exception as e:
         logger.error(f"❌ Error starting scheduler: {str(e)}")
@@ -33,17 +33,18 @@ async def lifespan(app: FastAPI):
 
     # Shutdown
     try:
-        scheduler_service.stop()
+        SchedulerService().stop()
         logger.info("⏹️ Application shutdown with scheduler stopped")
     except Exception as e:
         logger.error(f"❌ Error stopping scheduler: {str(e)}")
 
 # Initialize FastAPI app
+config_debug = config.AppConfig.from_env()
 app = FastAPI(
     title="Agent Report Service",
     description="AI-powered report generation service with automated scheduling",
     version="2.0.0",
-    debug=config.debug,
+    debug=config_debug.debug,
     lifespan=lifespan
 )
 
@@ -156,13 +157,13 @@ async def test_slack_connection():
 
         # Test connection
         connection_result = slack_tool.test_slack_connection()
-
+        config_slack = config.SlackConfig.from_env()
         # Test basic configuration
         config_status = {
-            "bot_token_configured": bool(config.slack.bot_token),
-            "bot_token_format_valid": config.slack.bot_token.startswith('xoxb-') if config.slack.bot_token else False,
-            "user_id_configured": bool(config.slack.user_id),
-            "user_id_format_valid": config.slack.user_id.startswith('U') if config.slack.user_id else False
+            "bot_token_configured": bool(config_slack.bot_token),
+            "bot_token_format_valid": config_slack.bot_token.startswith('xoxb-') if config_slack.bot_token else False,
+            "user_id_configured": bool(config_slack.user_id),
+            "user_id_format_valid": config_slack.user_id.startswith('U') if config_slack.user_id else False
         }
 
         return {
@@ -178,7 +179,7 @@ async def test_slack_connection():
 async def get_scheduler_status():
     """Get scheduler status and configuration"""
     try:
-        return scheduler_service.get_status()
+        return SchedulerService().get_status()
     except Exception as e:
         logger.error(f"Error getting scheduler status: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Scheduler status error: {str(e)}")
@@ -187,7 +188,7 @@ async def get_scheduler_status():
 async def trigger_manual_check():
     """Trigger manual scheduler check (for testing)"""
     try:
-        result = scheduler_service.trigger_manual_check()
+        result = SchedulerService().trigger_manual_check()
         if result.get("success"):
             return result
         else:
@@ -219,12 +220,12 @@ async def legacy_run(request: Dict[str, Any]):
 
 if __name__ == "__main__":
     logger.info("🚀 Starting Agent Report Service")
-    logger.info(f"📊 Configuration: Debug={config.debug}, Log Level={config.log_level}")
-
+    logger.info(f"📊 Configuration: Debug={config_debug.debug}, Log Level={config_debug.log_level}")
+    config_api = config.AppConfig.from_env()
     uvicorn.run(
         "main:app",
-        host=config.api_host,
-        port=config.api_port,
-        reload=config.debug,
-        log_level=config.log_level.lower()
+        host=config_api.api_host,
+        port=config_api.api_port,
+        reload=config_api.debug,
+        log_level=config_api.log_level.lower()
     )

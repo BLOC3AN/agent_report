@@ -98,7 +98,7 @@ class SchedulerService:
             state_manager.increment_check_count()
             
             # Check if report exists
-            sheet_url = config.default_sheet_url
+            sheet_url = config.AppConfig.from_env().default_sheet_url
             if not sheet_url:
                 self.logger.error("❌ No default sheet URL configured")
                 state_manager.mark_failed("No sheet URL configured")
