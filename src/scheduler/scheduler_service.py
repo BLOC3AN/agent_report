@@ -194,7 +194,7 @@ class SchedulerService:
     def get_status(self) -> Dict[str, Any]:
         """Get scheduler status"""
         try:
-            scheduler_status = {
+            scheduler_status: Dict[str, Any] = {
                 "running": self.scheduler.running if self.scheduler else False,
                 "jobs": [],
                 "next_run_times": {}
