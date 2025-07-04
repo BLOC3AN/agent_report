@@ -1,36 +1,47 @@
+# ==========================================
+# src/llms/gemini.py
+# Refactored Gemini LLM Provider
+# ==========================================
+
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.agents import AgentExecutor, create_tool_calling_agent
-from langchain_core.prompts import ChatPromptTemplate
-
-import load_dotenv
-load_dotenv.load_dotenv()
-
+from src.core.interfaces import LLMInterface
+from src.config import config
 from src.logs.logger import Logger
+
 logger = Logger(__name__)
 
-class AgentGemini:
+class GeminiLLM(LLMInterface):
+    """Gemini LLM provider implementation"""
+
     def __init__(self):
-        self.llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", 
-                                          temperature=0.9,
-                                          top_p=0.2,
-                                          top_k=40,
-                                          max_tokens=None,
-                                          max_output_tokens=150,
-                                          verbose = True,
-                                          )
-    def agent_gemini(self, tools:list, prompt:ChatPromptTemplate, input:str) -> dict:
+        self._llm = None
+        self._name = "Gemini 2.0 Flash"
+        self._initialize_llm()
+        logger.info(f"✅ {self._name} initialized successfully")
+
+    def _initialize_llm(self):
+        """Initialize the Gemini LLM with configuration"""
         try:
-            # Bước 1: Create agent executor from llm model
-            agent = create_tool_calling_agent(self.llm, tools, prompt)
-            agent_executor = AgentExecutor(agent=agent, tools=tools, verbose = True)
-            logger.info("✅ Gemini Agent created successfully")
-
-            # Bước 2: Gọi agent executor
-            result = agent_executor.invoke({"input": f"{input}"})
-            logger.info(f"📜 Resonsed keys from Gemini Agent \n{result.keys()}")
-            return result
-
+            self._llm = ChatGoogleGenerativeAI(
+                model=config.llm.model_name,
+                temperature=config.llm.temperature,
+                top_p=config.llm.top_p,
+                top_k=config.llm.top_k,
+                max_tokens=None,
+                max_output_tokens=config.llm.max_output_tokens,
+                verbose=config.llm.verbose,
+            )
         except Exception as e:
-            logger.error(f"❌ Error in create Gemini Agent execution: {str(e)}")
-            return {"Error as agent_gemini": str(e)}
+            logger.error(f"❌ Failed to initialize Gemini LLM: {str(e)}")
+            raise
 
+    def get_llm(self):
+        """Get the LLM instance"""
+        if self._llm is None:
+            self._initialize_llm()
+        return self._llm
+
+    @property
+    def name(self) -> str:
+        """Get the LLM name"""
+        return self._name

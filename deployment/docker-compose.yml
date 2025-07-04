@@ -1,19 +1,74 @@
+# ==========================================
+# deployment/docker-compose.yml - Agent Report Service
+# ==========================================
+
+version: '3.8'
+
 services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: agent-report-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: agent_reports
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - agent-network
+
+  # Agent Report Service
   agent-report:
-    build: 
+    build:
       context: ..
       dockerfile: deployment/Dockerfile
+    container_name: agent-report-service
     ports:
-      - "7700:5000"  # FastAPI
-      - "8501:8501"  # Streamlit
-      # - "8001:8001"  # MCP
+      - "5000:5000"  # FastAPI API
     environment:
-      - url=https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
-      - GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
+      # Application Configuration
+      - DEBUG=false
+      - LOG_LEVEL=INFO
+      - API_HOST=0.0.0.0
+      - API_PORT=5000
+
+      # Database Configuration
+      - MONGODB_URI=mongodb://admin:password@mongodb:27017/agent_reports?authSource=admin
+      - MONGODB_DB_NAME=agent_reports
+      - MONGODB_COLLECTION_NAME=chat_history
+
+      # LLM Configuration
+      - LLM_MODEL=gemini-2.0-flash
+      - LLM_TEMPERATURE=0.7
+      - LLM_TOP_P=0.8
+      - LLM_TOP_K=40
+      - LLM_MAX_TOKENS=2048
+      - LLM_VERBOSE=false
+
+      # Google Sheets Configuration (optional)
+      - DEFAULT_SHEET_URL=https://docs.google.com/spreadsheets/d/19zPaWbW-VuYqhq1ur8vcPoV4EbDKKVDDN84vi4yuOJU/edit?usp=sharing
+
+    depends_on:
+      - mongodb
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 5s
+      start_period: 15s
+    networks:
+      - agent-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  agent-network:
+    driver: bridge

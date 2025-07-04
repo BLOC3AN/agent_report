@@ -1,92 +1,157 @@
-import os
-import requests
-from langchain_core.messages import HumanMessage, AIMessage
-from langchain_core.tools import BaseTool, tool
-from typing import Dict, Any, List
-from pydantic import BaseModel, Field
-import load_dotenv
-load_dotenv.load_dotenv()
+# ==========================================
+# main.py
+# Clean FastAPI Application Entry Point
+# ==========================================
+
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import Dict, Any, Optional
+import uvicorn
+
+from src.agents.agent_report import AgentReporter
+from src.tools.tool_registry import tool_registry
+from src.config import config
 from src.logs.logger import Logger
+
 logger = Logger(__name__)
 
-# --- Cấu hình cho MCP Service API ---
-MCP_SERVICE_API_URL = os.getenv("MCP_SERVICE_API_URL")
+# Initialize FastAPI app
+app = FastAPI(
+    title="Agent Report Service",
+    description="AI-powered report generation service",
+    version="2.0.0",
+    debug=config.debug
+)
 
-class MCPTool(BaseTool):
-    """
-    Một lớp BaseTool của LangChain đại diện cho một tool được khám phá từ MCP Service.
-    """    
-    mcp_endpoint: str
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-    def _run(self, *args: Any, **kwargs: Any) -> Any:
-        """Thực thi tool bằng cách gọi MCP Service API."""
-        headers = {"Content-Type": "application/json"}
-        full_url = f"{MCP_SERVICE_API_URL}{self.mcp_endpoint}"
-        
-        try:
-            response = requests.post(full_url, json=kwargs, headers=headers)
-            response.raise_for_status()
-            result = response.json()            
-            if result.get("data"):
-                return result.get("data")
-               
-        except requests.exceptions.RequestException as e:
-            return {"error": f"Failed to call MCP Service endpoint {self.mcp_endpoint}: {e}"}
-        except Exception as e:
-            return {"error": f"An unexpected error occurred in MCPTool: {e}"}
+# Request/Response models
+class ReportRequest(BaseModel):
+    sheet_url: str
+    additional_context: Optional[str] = ""
 
+class ReportResponse(BaseModel):
+    success: bool
+    output: Optional[str] = None
+    error: Optional[str] = None
+    agent: str
+    context: Optional[Dict[str, Any]] = None
 
-def discover_and_create_mcp_tools() -> List[BaseTool]:
-    """
-    Khám phá các tools từ MCP Service và tạo các đối tượng BaseTool của LangChain.
-    """
-    headers = {"Content-Type": "application/json"}
-    capabilities_url = f"{MCP_SERVICE_API_URL}/capabilities"
-    
-    try:
-        response = requests.get(capabilities_url, headers=headers)
-        response.raise_for_status()
-        capabilities = response.json()
-    except requests.exceptions.RequestException as e:
-        logger.error(f"Error discovering MCP capabilities: {e}")
-        return []
+class HealthResponse(BaseModel):
+    status: str
+    version: str
+    tools_available: int
 
-    langchain_tools = []
-    for capability in capabilities:
-        tool_name = capability['mcp_schema']["tool_name"]
-        description = capability['mcp_schema']["description"]
-        endpoint = capability['mcp_schema']["endpoint_url"]
-        input_schema = capability['mcp_schema']["input_schema"] 
-
-        mcp_tool_instance = MCPTool(
-            name=tool_name,
-            description=description,
-            args_schema=input_schema, # Truyền JSON Schema vào args_schema
-            mcp_endpoint=endpoint
-        )
-        langchain_tools.append(mcp_tool_instance)
-    
-    logger.info(f"Discovered {len(langchain_tools)} tools from MCP Service.")
-    return langchain_tools
-
-# --- Main Agent Logic ---
-if __name__ == "__main__":
-    from src.agents.agent_report import AgentReporter
-       # Lấy URL từ biến môi trường
-    sheet_url = os.getenv('url')
+# Initialize agent with tools
+def get_agent() -> AgentReporter:
+    """Get initialized agent with tools"""
     agent = AgentReporter()
+    tools = tool_registry.get_langchain_tools()
+    agent.add_tools(tools)
 
-    # Bước quan trọng: Khám phá tools từ MCP Service API
-    mcp_tools = discover_and_create_mcp_tools()
-    
-    if not mcp_tools:
-        logger.error("No tools discovered from MCP Service. Exiting.")
-        exit()
+    # Debug logging
+    logger.info(f"🤖 Agent initialized with {len(tools)} tools")
+    for tool in tools:
+        logger.info(f"🔧 Tool available: {tool.name} - {tool.description}")
 
-    # Sử dụng tools này trong agent
-    agent.tools = mcp_tools
-    agent_report = agent.run(input=f"""Tạo cho tôi báo cáo đi bạn từ {sheet_url}, 
-              lấy thông tin mới nhất theo ngày và chuyển sáng tiếng anh cho tôi 
-              sau đó nhớ đảm bảo lưu lịch sử trò chuyện này vào MongoDB 
-             Kiểm tra lại mọi thứ theo đúng yêu cầu của tôi và trả về cho tôi đúng định dạng ouput sau khi sử dụng tools""")
-    logger.info(str(agent_report))
+    return agent
+
+# API Endpoints
+@app.get("/health", response_model=HealthResponse)
+async def health_check():
+    """Health check endpoint"""
+    try:
+        tools_count = len(tool_registry.get_all_tools())
+        return HealthResponse(
+            status="healthy",
+            version="2.0.0",
+            tools_available=tools_count
+        )
+    except Exception as e:
+        logger.error(f"Health check failed: {str(e)}")
+        raise HTTPException(status_code=500, detail="Service unhealthy")
+
+@app.post("/report", response_model=ReportResponse)
+async def generate_report(request: ReportRequest):
+    """Generate report from Google Sheets data"""
+    try:
+        logger.info(f"📊 Report generation requested for: {request.sheet_url}")
+
+        # Get agent and generate report
+        agent = get_agent()
+        result = agent.generate_report(
+            sheet_url=request.sheet_url,
+            additional_context=request.additional_context or ""
+        )
+
+        if result.get("success"):
+            logger.success("Report generated successfully")
+            return ReportResponse(
+                success=True,
+                output=result.get("output"),
+                agent=result.get("agent", "ReportAgent"),
+                context=result.get("context")
+            )
+        else:
+            logger.error(f"Report generation failed: {result.get('error')}")
+            return ReportResponse(
+                success=False,
+                error=result.get("error"),
+                agent=result.get("agent", "ReportAgent")
+            )
+
+    except Exception as e:
+        error_msg = f"Unexpected error during report generation: {str(e)}"
+        logger.error(error_msg)
+        raise HTTPException(status_code=500, detail=error_msg)
+
+@app.get("/tools")
+async def list_tools():
+    """List available tools"""
+    try:
+        tools = tool_registry.list_tool_names()
+        return {"tools": tools, "count": len(tools)}
+    except Exception as e:
+        logger.error(f"Error listing tools: {str(e)}")
+        raise HTTPException(status_code=500, detail="Error retrieving tools")
+
+# Legacy endpoint for backward compatibility
+@app.post("/legacy/run")
+async def legacy_run(request: Dict[str, Any]):
+    """Legacy endpoint for backward compatibility"""
+    try:
+        user_input = request.get("user_input", "")
+        sheet_url = request.get("sheet_url")
+
+        if not user_input:
+            raise HTTPException(status_code=400, detail="user_input is required")
+
+        agent = get_agent()
+        result = agent.run(user_input=user_input, sheet_url=sheet_url)
+
+        return result
+
+    except Exception as e:
+        error_msg = f"Legacy endpoint error: {str(e)}"
+        logger.error(error_msg)
+        raise HTTPException(status_code=500, detail=error_msg)
+
+if __name__ == "__main__":
+    logger.info("🚀 Starting Agent Report Service")
+    logger.info(f"📊 Configuration: Debug={config.debug}, Log Level={config.log_level}")
+
+    uvicorn.run(
+        "main:app",
+        host=config.api_host,
+        port=config.api_port,
+        reload=config.debug,
+        log_level=config.log_level.lower()
+    )
