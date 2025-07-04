@@ -22,14 +22,15 @@ class GeminiLLM(LLMInterface):
     def _initialize_llm(self):
         """Initialize the Gemini LLM with configuration"""
         try:
+            llm = config.LLMConfig.from_env()
             self._llm = ChatGoogleGenerativeAI(
-                model=config.llm.model_name,
-                temperature=config.llm.temperature,
-                top_p=config.llm.top_p,
-                top_k=config.llm.top_k,
+                model=llm.model_name,
+                temperature=llm.temperature,
+                top_p=llm.top_p,
+                top_k=llm.top_k,
                 max_tokens=None,
-                max_output_tokens=config.llm.max_output_tokens,
-                verbose=config.llm.verbose,
+                max_output_tokens=llm.max_output_tokens,
+                verbose=llm.verbose,
             )
         except Exception as e:
             logger.error(f"❌ Failed to initialize Gemini LLM: {str(e)}")
