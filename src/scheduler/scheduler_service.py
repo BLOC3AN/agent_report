@@ -139,11 +139,11 @@ class SchedulerService:
             if result.get("success"):
                 # Mark as completed
                 state_manager.mark_completed()
-                
-                # Send success notification
-                report_summary = self.report_checker.get_report_summary(report_data)
-                self.reminder_service.send_success_notification(report_summary)
-                
+
+                # Success notification disabled - report itself is the notification
+                # report_summary = self.report_checker.get_report_summary(report_data)
+                # self.reminder_service.send_success_notification(report_summary)
+
                 self.logger.info("🎉 Report processing completed successfully")
             else:
                 error_msg = result.get("error", "Unknown error in report generation")
